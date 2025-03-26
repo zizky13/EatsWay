@@ -21,12 +21,13 @@ struct ToggleButton: View {
             action() // Perform the custom action passed as a parameter
         }) {
             Text(buttonText)
-                .padding()
-                .foregroundColor(isTapped ? .white : .blue) // Change text color
-                .background(isTapped ? Color.blue : Color.clear) // Filled background when tapped
+                .font(.system(size: 13))
+                .padding(10)
+                .foregroundColor(isTapped ? .white : .gray) // Change text color
+                .background(isTapped ? Color.gray : Color.clear) // Filled background when tapped
                 .overlay(
                     RoundedRectangle(cornerRadius: 10)
-                        .stroke(Color.blue, lineWidth: 2) // Border
+                        .stroke(Color.gray, lineWidth: 2) // Border
                 )
                 .cornerRadius(10)
         }
@@ -35,5 +36,7 @@ struct ToggleButton: View {
 
 
 #Preview {
-    ToggleButton()
+    ToggleButton(buttonText: "Test", action: {
+        print("Button tapped!")
+    })
 }
