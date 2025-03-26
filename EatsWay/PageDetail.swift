@@ -74,9 +74,9 @@ struct PageDetail: View {
             
                 ScrollView (.horizontal){
                     HStack {
-                        Review(user: "Althea", textreview: "Makanannya enak semua, mantap Mama Djempol")
-                        Review(user: "Althea", textreview: "Makanannya enak semua, mantap Mama Djempol")
-                        Review(user: "Althea", textreview: "Makanannya enak semua, mantap Mama Djempol")
+                        Review(picture: "Althea", user: "Althea", textreview: "Makanannya enak semua, mantap Mama Djempol")
+                        Review(picture: "Zikar Luis", user: "Zikar Luis", textreview: "Makanan oke, kurang pedes aja")
+                        Review(picture: "Althea", user: "Althea", textreview: "Makanannya enak semua, mantap Mama Djempol")
                     }
                     .padding(.leading, 25)
                 }
@@ -96,5 +96,5 @@ struct PageDetail: View {
 }
 
 #Preview {
-    PageDetail(judul: "Mama Djempol", gambar:"Mama Djempol", harga: "30-40K", deskripsi: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.")
+    PageDetail(judul: "Mama Djempol", gambar:"Mama Djempol", harga: "Rp 30-40K", deskripsi: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.")
 }
