@@ -64,22 +64,37 @@ struct PageDetail: View {
                         .padding(.top, 15)
                         .padding(.leading, 25)
                     
+                    ScrollView (.horizontal){
+                        HStack {
+                            Review(picture: "Althea", user: "Althea", textreview: "Makanannya enak semua, mantap Mama Djempol")
+                            Review(picture: "Zikar Luis", user: "Zikar Luis", textreview: "Makanan oke, kurang pedes aja")
+                            Review(picture: "Althea", user: "Althea", textreview: "Makanannya enak semua, mantap Mama Djempol")
+                        }
+                        .padding(.leading, 25)
+                    }
                     
+                    Text("Menu")
+                        .font(.title2)
+                        .bold()
+                        .padding(.top, 15)
+                        .padding(.leading, 25)
                     
-                
-                
+                    Menu(menu: "Sapi Lada Hitam", deskripsimenu: "Seporsi sapi lada hitam dengan nasi.", harga: "Rp 14.000")
+                        .padding(.leading, 25)
+                    Menu(menu: "Sapi Lada Hitam", deskripsimenu: "Seporsi sapi lada hitam dengan nasi.", harga: "Rp 14.000")
+                        .padding(.leading, 25)
+                    Menu(menu: "Sapi Lada Hitam", deskripsimenu: "Seporsi sapi lada hitam dengan nasi.", harga: "Rp 14.000")
+                        .padding(.leading, 25)
+                    Menu(menu: "Sapi Lada Hitam", deskripsimenu: "Seporsi sapi lada hitam dengan nasi.", harga: "Rp 14.000")
+                        .padding(.leading, 25)
+                    Menu(menu: "Sapi Lada Hitam", deskripsimenu: "Seporsi sapi lada hitam dengan nasi.", harga: "Rp 14.000")
+                        .padding(.leading, 25)
             }
             
+                
             
             
-                ScrollView (.horizontal){
-                    HStack {
-                        Review(picture: "Althea", user: "Althea", textreview: "Makanannya enak semua, mantap Mama Djempol")
-                        Review(picture: "Zikar Luis", user: "Zikar Luis", textreview: "Makanan oke, kurang pedes aja")
-                        Review(picture: "Althea", user: "Althea", textreview: "Makanannya enak semua, mantap Mama Djempol")
-                    }
-                    .padding(.leading, 25)
-                }
+                
                 Spacer()
             }
             .navigationTitle(judul)
