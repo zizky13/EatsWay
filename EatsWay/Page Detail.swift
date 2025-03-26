@@ -9,7 +9,7 @@ import SwiftUI
 
 struct Page_Detail: View {
     var body: some View {
-        Text("Louise")
+        Text("Louise kedua")
     }
 }
 
