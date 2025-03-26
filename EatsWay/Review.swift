@@ -8,31 +8,38 @@
 import SwiftUI
 import SwiftData
 
+
+
+
 struct Review: View {
     
+    var picture: String
     var user: String
     var textreview: String
+    
 
     var body: some View {
         VStack (alignment: .leading){
             HStack (spacing: 10){
-                Image(user)
+                Image(picture)
                     .resizable()
                     .frame(width: 60, height: 60)
                     .clipShape(Circle())
                 
                 VStack(alignment: .leading, spacing:5) {
-                    Text("Althea")
+                    Text(user)
                         .font(.headline)
                     HStack {
                         ForEach(0..<4) { _ in
-                            Image(systemName: "star.fill")
+                            Image(systemName: "star.fill") //GANTI
                                 .frame(width: 15)
                                 .foregroundColor(.yellow)
                         }
-                        Image(systemName: "star")
-                            .frame(width: 15)
-                            .foregroundColor(.yellow)
+                        ForEach(0..<1) { _ in
+                            Image(systemName: "star") //GANTI
+                                .frame(width: 15)
+                                .foregroundColor(.yellow)
+                        }
                     }
                 }
             }
@@ -51,5 +58,5 @@ struct Review: View {
 }
 
 #Preview {
-    Review(user: "Althea", textreview: "Makanannya enak semua, mantap Mama Djempol")
+    Review(picture: "Althea", user: "Althea", textreview: "Makanannya enak semua, mantap Mama Djempol")
 }
