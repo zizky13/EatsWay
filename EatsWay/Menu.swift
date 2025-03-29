@@ -35,7 +35,7 @@ struct Menu: View {
             }
         }
         .frame(width: 350, height: 110, alignment: .leading)
-        .padding(15)
+//        .padding(15)
 
     }
 }
