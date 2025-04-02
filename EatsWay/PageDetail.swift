@@ -9,7 +9,7 @@ import SwiftUI
 
 struct PageDetail: View {
     
-    var judul: String
+    var namaTenant: String
     var gambar: String
     var harga: String
     var deskripsi: String
@@ -47,7 +47,7 @@ struct PageDetail: View {
                         .padding(.leading, 25)
                         .padding(.trailing, 25)
                         
-                        Text("About " + judul)
+                        Text("About " + namaTenant)
                             .font(.title2)
                             .bold()
                             .padding(.top, 5)
@@ -98,7 +98,7 @@ struct PageDetail: View {
                     
                     Spacer()
                 }
-                .navigationTitle(judul)
+                .navigationTitle(namaTenant)
                 
             }
             
@@ -134,5 +134,5 @@ struct PageDetail: View {
 }
 
 #Preview {
-    PageDetail(judul: "Mama Djempol", gambar:"Mama Djempol", harga: "Rp 30-40K", deskripsi: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.")
+    PageDetail(namaTenant: "Mama Djempol", gambar:"Mama Djempol", harga: "Rp 30-40K", deskripsi: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.")
 }

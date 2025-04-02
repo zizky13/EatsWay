@@ -10,20 +10,19 @@ import SwiftUI
 
 struct TenantCard: View {
 
-    var image: String
-    var tenant: String
+    var gambar: String
+    var namaTenant: String
     var harga: String
-    var label1: String
-    var label2: String
+    var labels: [String]
 
     var body: some View {
         VStack(alignment: .leading, spacing: 5) {
-            Image(image)
+            Image(gambar)
                 .resizable()
                 .frame(width: 170, height: 110)
                 .cornerRadius(10)
 
-            Text(tenant)
+            Text(namaTenant)
                 .font(.title3)
                 .bold()
                 .padding(.top, 4)
@@ -48,8 +47,10 @@ struct TenantCard: View {
 
             
             HStack (spacing: 10) {
-                CustomLabel(nama: label1)
-                CustomLabel(nama: label2)
+                //label dinamis, tinggal masukin data ke array
+                ForEach(labels, id: \.self) { label in
+                    CustomLabel(nama: label)
+                }
             }.padding(.top, 8)
         }
         .padding(20)
@@ -64,5 +65,5 @@ struct TenantCard: View {
 }
 
 #Preview {
-    TenantCard(image: "Mama Djempol", tenant: "Mama Djempol", harga: "Rp 30.000-40.000", label1: "Rice", label2: "Chicken")
+    TenantCard(gambar: "Mama Djempol", namaTenant: "Mama Djempol", harga: "Rp 30.000-40.000", labels: ["Rice", "Chicken", "Fish"])
 }
