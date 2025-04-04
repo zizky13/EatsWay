@@ -11,7 +11,8 @@ struct PageDetail: View {
     
     var namaTenant: String
     var gambar: String
-    var harga: String
+    var minPrice: Int
+    var maxPrice: Int
     var deskripsi: String
     
     var body: some View {
@@ -28,7 +29,7 @@ struct PageDetail: View {
             //                .cornerRadius(20, corners: [.bottomLeft, .bottomRight])
                         
                         HStack {
-                            Text(harga)
+                            Text("Rp \(minPrice) - Rp \(maxPrice)k")
                                 .font(.title)
                                 .bold()
                             Spacer()
@@ -67,9 +68,9 @@ struct PageDetail: View {
                         
                         ScrollView (.horizontal){
                             HStack {
-                                Review(picture: "Althea", user: "Althea", textreview: "Makanannya enak semua, mantap Mama Djempol")
-                                Review(picture: "Zikar Luis", user: "Zikar Luis", textreview: "Makanan oke, kurang pedes aja")
-                                Review(picture: "Althea", user: "Althea", textreview: "Makanannya enak semua, mantap Mama Djempol")
+//                                Review(picture: "Althea", user: "Althea", textreview: "Makanannya enak semua, mantap Mama Djempol", rating: 4)
+//                                Review(picture: "Zikar Luis", user: "Zikar Luis", textreview: "Makanan oke, kurang pedes aja", rating: 3)
+//                                Review(picture: "Althea", user: "Althea", textreview: "Makanannya enak semua, mantap Mama Djempol", rating: 4)
                             }
                             .padding(.leading, 25)
                         }
@@ -80,16 +81,16 @@ struct PageDetail: View {
                             .padding(.top, 15)
                             .padding(.leading, 25)
                         
-                        Menu(menu: "Sapi Lada Hitam", deskripsimenu: "Seporsi sapi lada hitam dengan nasi.", harga: "Rp 14.000")
-                            .padding(.leading, 25)
-                        Menu(menu: "Sapi Lada Hitam", deskripsimenu: "Seporsi sapi lada hitam dengan nasi.", harga: "Rp 14.000")
-                            .padding(.leading, 25)
-                        Menu(menu: "Sapi Lada Hitam", deskripsimenu: "Seporsi sapi lada hitam dengan nasi.", harga: "Rp 14.000")
-                            .padding(.leading, 25)
-                        Menu(menu: "Sapi Lada Hitam", deskripsimenu: "Seporsi sapi lada hitam dengan nasi.", harga: "Rp 14.000")
-                            .padding(.leading, 25)
-                        Menu(menu: "Sapi Lada Hitam", deskripsimenu: "Seporsi sapi lada hitam dengan nasi.", harga: "Rp 14.000")
-                            .padding(.leading, 25)
+//                        Menu(menu: "Sapi Lada Hitam", deskripsimenu: "Seporsi sapi lada hitam dengan nasi.", harga: "Rp 14.000")
+//                            .padding(.leading, 25)
+//                        Menu(menu: "Sapi Lada Hitam", deskripsimenu: "Seporsi sapi lada hitam dengan nasi.", harga: "Rp 14.000")
+//                            .padding(.leading, 25)
+//                        Menu(menu: "Sapi Lada Hitam", deskripsimenu: "Seporsi sapi lada hitam dengan nasi.", harga: "Rp 14.000")
+//                            .padding(.leading, 25)
+//                        Menu(menu: "Sapi Lada Hitam", deskripsimenu: "Seporsi sapi lada hitam dengan nasi.", harga: "Rp 14.000")
+//                            .padding(.leading, 25)
+//                        Menu(menu: "Sapi Lada Hitam", deskripsimenu: "Seporsi sapi lada hitam dengan nasi.", harga: "Rp 14.000")
+//                            .padding(.leading, 25)
                 }
                 
                     
@@ -134,5 +135,5 @@ struct PageDetail: View {
 }
 
 #Preview {
-    PageDetail(namaTenant: "Mama Djempol", gambar:"Mama Djempol", harga: "Rp 30-40K", deskripsi: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.")
+    PageDetail(namaTenant: "Mama Djempol", gambar:"Mama Djempol", minPrice: 10, maxPrice: 40,  deskripsi: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.")
 }

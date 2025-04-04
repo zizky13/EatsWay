@@ -11,8 +11,10 @@ import SwiftData
 @main
 struct EatsWayApp: App {
     var body: some Scene {
+        @State var tenants: [TenantModel] = TenantModel.sampleData
+        
         WindowGroup {
-            HomePage(tenants: TenantModel.sampleData)
+            HomePage(tenants: $tenants)
         }
     }
 }

@@ -24,7 +24,7 @@
 import SwiftUI
 
 struct HomePage: View {
-    let tenants: [TenantModel]
+    @Binding var tenants: [TenantModel]
     @State var isShowingFilterPage: Bool = false
 
     var body: some View {
@@ -61,12 +61,12 @@ struct HomePage: View {
                         HStack {
                             //Tenant price masi hardcoded
                             ForEach(tenants) { tenant in
-                                NavigationLink(destination: PageDetail(namaTenant: tenant.namaTenant, gambar: tenant.gambar, harga: tenant.harga, deskripsi: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.")){
-                                    
+                                NavigationLink(destination: PageDetail(namaTenant: tenant.name, gambar: tenant.image, minPrice: tenant.minPrice, maxPrice: tenant.maxPrice, deskripsi: tenant.description)){
                                     TenantCard(
-                                        gambar: tenant.gambar,
-                                        namaTenant: tenant.namaTenant,
-                                        harga: tenant.harga,
+                                        gambar: tenant.image,
+                                        namaTenant: tenant.name,
+                                        minPrice: tenant.minPrice,
+                                        maxPrice: tenant.maxPrice,
                                         labels: tenant.labels)
                                 }
                                 .buttonStyle(PlainButtonStyle())
@@ -84,12 +84,18 @@ struct HomePage: View {
                         HStack {
                             //Tenant price masi hardcoded
                             ForEach(tenants) { tenant in
-                                TenantCard(
-                                    gambar: tenant.gambar,
-                                    namaTenant: tenant.namaTenant,
-                                    harga: tenant.harga,
-                                    labels: tenant.labels)
+                                NavigationLink(destination: PageDetail(namaTenant: tenant.name, gambar: tenant.image, minPrice: tenant.minPrice, maxPrice: tenant.maxPrice, deskripsi: tenant.description)){
+                                    
+                                    TenantCard(
+                                        gambar: tenant.image,
+                                        namaTenant: tenant.name,
+                                        minPrice: tenant.minPrice,
+                                        maxPrice: tenant.maxPrice,
+                                        labels: tenant.labels)
+                                }
+                                .buttonStyle(PlainButtonStyle())
                             }
+                            
                         }
                     }
                     .padding(.top, 10)
@@ -115,7 +121,8 @@ struct HomePage: View {
 }
 
 #Preview {
+    @Previewable @State var tenants = TenantModel.sampleData
     NavigationStack {
-        HomePage(tenants: TenantModel.sampleData)
+        HomePage(tenants: $tenants)
     }
 }

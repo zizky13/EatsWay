@@ -12,7 +12,8 @@ struct TenantCard: View {
 
     var gambar: String
     var namaTenant: String
-    var harga: String
+    var minPrice: Int
+    var maxPrice: Int
     var labels: [String]
 
     var body: some View {
@@ -27,7 +28,7 @@ struct TenantCard: View {
                 .bold()
                 .padding(.top, 4)
 
-            Text(harga)
+            Text("Rp \(minPrice) - Rp \(maxPrice)k")
                 .font(.body)
                 .padding(.top, 2)
 
@@ -65,5 +66,5 @@ struct TenantCard: View {
 }
 
 #Preview {
-    TenantCard(gambar: "Mama Djempol", namaTenant: "Mama Djempol", harga: "Rp 30.000-40.000", labels: ["Rice", "Chicken", "Fish"])
+    TenantCard(gambar: "Mama Djempol", namaTenant: "Mama Djempol", minPrice: 10, maxPrice: 40, labels: ["Rice", "Chicken", "Fish"])
 }

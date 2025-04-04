@@ -9,9 +9,19 @@ import Foundation
 
 extension TenantModel {
     static let sampleData: [TenantModel] = [
-        TenantModel(gambar: "Mama Djempol", namaTenant: "Dummy 1", harga: "Rp 10k - 40k", labels: ["Rice", "Broth"]),
-        TenantModel(gambar: "Mama Djempol", namaTenant: "Dummy 2", harga: "Rp 10k - 40k", labels: ["Noodles", "Broth"]),
-        TenantModel(gambar: "Mama Djempol", namaTenant: "Dummy 3", harga: "Rp 10k - 40k", labels: ["Chicken", "Porridge"]),
-        TenantModel(gambar: "Mama Djempol", namaTenant: "Dummy 4", harga: "Rp 10k - 40k", labels: ["Beverages"])
+        TenantModel(
+            image: "Mama Djempol", name: "Mama Djempol", maxPrice: 40,
+            minPrice: 10, description: "Lorem ipsum dolor amet",
+            labels: ["Chicken", "Broth"],
+            menus: [
+                MenuModel(
+                    name: "Mie Ayam", image: "Mama Djempol",
+                    description: "Lorem ipsum", price: 10)
+            ],
+            reviews: [
+                ReviewModel(
+                    picture: "Althea", user: "Althea",
+                    textreview: "Lorem ipsum", rating: 4)
+            ])
     ]
 }

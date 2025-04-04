@@ -10,17 +10,24 @@ import Foundation
 
 struct TenantModel: Identifiable {
     let id: UUID
-    var gambar: String
-    var namaTenant: String
-    var harga: String
+    var image: String
+    var name: String
+    var maxPrice: Int //in thousand
+    var minPrice: Int  //in thousand
+    var description: String
     var labels: [String]
+    var menus: [MenuModel]
+    var reviews: [ReviewModel]
     
-    
-    init(id: UUID = UUID(), gambar: String, namaTenant: String, harga: String, labels: [String]) {
+    init(id: UUID = UUID(), image: String, name: String, maxPrice: Int, minPrice: Int, description: String, labels: [String], menus: [MenuModel], reviews: [ReviewModel]) {
         self.id = id
-        self.gambar = gambar
-        self.namaTenant = namaTenant
-        self.harga = harga
+        self.image = image
+        self.name = name
+        self.maxPrice = maxPrice
+        self.minPrice = minPrice
+        self.description = description
         self.labels = labels
+        self.menus = menus
+        self.reviews = reviews
     }
 }
