@@ -8,26 +8,24 @@
 import SwiftUI
 
 struct ToggleButton: View {
-    let buttonText: String // Button text passed as a parameter
-    let action: () -> Void // Action passed as a parameter
-    
-    @State private var isTapped = false // State to track the button's toggle state
-    
+    let buttonText: String
+    let isSelected: Bool
+    let action: () -> Void
+
     var body: some View {
         Button(action: {
             withAnimation {
-                isTapped.toggle() // Toggle the state
+                action()
             }
-            action() // Perform the custom action passed as a parameter
         }) {
             Text(buttonText)
                 .font(.system(size: 13))
                 .padding(10)
-                .foregroundColor(isTapped ? .white : .gray) // Change text color
-                .background(isTapped ? Color.gray : Color.clear) // Filled background when tapped
+                .foregroundColor(isSelected ? .white : .gray)
+                .background(isSelected ? Color.gray : Color.clear)
                 .overlay(
                     RoundedRectangle(cornerRadius: 10)
-                        .stroke(Color.gray, lineWidth: 2) // Border
+                        .stroke(Color.gray, lineWidth: 2)
                 )
                 .cornerRadius(10)
         }
@@ -36,7 +34,7 @@ struct ToggleButton: View {
 
 
 #Preview {
-    ToggleButton(buttonText: "Test", action: {
+    ToggleButton(buttonText: "Test", isSelected: false, action: {
         print("Button tapped!")
     })
 }

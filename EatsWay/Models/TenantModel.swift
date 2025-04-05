@@ -15,11 +15,11 @@ struct TenantModel: Identifiable {
     var maxPrice: Int //in thousand
     var minPrice: Int  //in thousand
     var description: String
-    var labels: [String]
+    var labels: Set<String>
     var menus: [MenuModel]
     var reviews: [ReviewModel]
     
-    init(id: UUID = UUID(), image: String, name: String, maxPrice: Int, minPrice: Int, description: String, labels: [String], menus: [MenuModel], reviews: [ReviewModel]) {
+    init(id: UUID = UUID(), image: String, name: String, maxPrice: Int, minPrice: Int, description: String, labels: Set<String>, menus: [MenuModel], reviews: [ReviewModel]) {
         self.id = id
         self.image = image
         self.name = name

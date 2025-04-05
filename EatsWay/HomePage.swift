@@ -25,20 +25,22 @@ import SwiftUI
 
 struct HomePage: View {
     @Binding var tenants: [TenantModel]
-    @State var isShowingFilterPage: Bool = false
+    @Binding var filteredTenants: [TenantModel]
+    @Binding var user: UserModel
+    @State private var isShowingFilterPage = false
 
     var body: some View {
         NavigationStack {
             ScrollView(.vertical) {
                 VStack(alignment: .leading) {
-                    // Custom header with inline plus button
+                    // Header
                     HStack {
-                        Text("Hi Bello!")
+                        Text("Hi \(user.name)")
                             .font(.largeTitle)
                             .bold()
-                        
+
                         Spacer()
-                        
+
                         Button(action: {
                             isShowingFilterPage = true
                         }) {
@@ -51,7 +53,7 @@ struct HomePage: View {
                     Text("It's Time to Eat")
                         .font(.largeTitle)
                         .bold()
-                        
+
                     Text("Recommendations")
                         .font(.title2)
                         .bold()
@@ -59,9 +61,10 @@ struct HomePage: View {
 
                     ScrollView(.horizontal) {
                         HStack {
-                            //Tenant price masi hardcoded
-                            ForEach(tenants) { tenant in
-                                NavigationLink(destination: PageDetail(namaTenant: tenant.name, gambar: tenant.image, minPrice: tenant.minPrice, maxPrice: tenant.maxPrice, deskripsi: tenant.description)){
+                            ForEach(filteredTenants) { tenant in
+                                NavigationLink(
+                                    destination: PageDetail(tenant: tenant)
+                                ) {
                                     TenantCard(
                                         gambar: tenant.image,
                                         namaTenant: tenant.name,
@@ -82,10 +85,10 @@ struct HomePage: View {
 
                     ScrollView(.horizontal) {
                         HStack {
-                            //Tenant price masi hardcoded
-                            ForEach(tenants) { tenant in
-                                NavigationLink(destination: PageDetail(namaTenant: tenant.name, gambar: tenant.image, minPrice: tenant.minPrice, maxPrice: tenant.maxPrice, deskripsi: tenant.description)){
-                                    
+                            ForEach(filteredTenants) { tenant in
+                                NavigationLink(
+                                    destination: PageDetail(tenant: tenant)
+                                ) {
                                     TenantCard(
                                         gambar: tenant.image,
                                         namaTenant: tenant.name,
@@ -95,34 +98,42 @@ struct HomePage: View {
                                 }
                                 .buttonStyle(PlainButtonStyle())
                             }
-                            
                         }
+                        .padding(.top, 10)
                     }
-                    .padding(.top, 10)
+                    .padding(.horizontal, 15)
                 }
-                .padding(.horizontal, 15) // Moved padding here for consistency
             }
-            // Removed the toolbar item since we're placing the button directly in the HStack
-        }
-        .sheet(isPresented: $isShowingFilterPage){
-            NavigationStack{
-                FilterView()
-                    .toolbar{
+            .sheet(isPresented: $isShowingFilterPage) {
+                NavigationStack {
+                    FilterView(
+                        isShowingFilterPage: $isShowingFilterPage,
+                        selectedCuisines: $user.selectedLabels,
+                        priceSorting: $user.priceSorting, tenants: $tenants,
+                        filteredTenants: $filteredTenants, user: $user
+                    )
+                    .toolbar {
                         ToolbarItem(placement: .cancellationAction) {
                             Button("Cancel") {
                                 isShowingFilterPage = false
                             }
                         }
                     }
-                
+                }
             }
         }
+        .padding(.leading, 15)
     }
 }
 
 #Preview {
-    @Previewable @State var tenants = TenantModel.sampleData
+    @Previewable @State var tenants: [TenantModel] = []
+    @Previewable @State var filteredTenants: [TenantModel] = []
+    @Previewable @State var user: UserModel = .init(
+        name: "Joko", selectedLabels: [], priceSorting: .none)
     NavigationStack {
-        HomePage(tenants: $tenants)
+
+        HomePage(
+            tenants: $tenants, filteredTenants: $filteredTenants, user: $user)
     }
 }

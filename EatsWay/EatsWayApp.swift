@@ -10,11 +10,13 @@ import SwiftData
 
 @main
 struct EatsWayApp: App {
+    @State var user: UserModel = UserModel(name: "Herman", selectedLabels: ["Rice", "Broth"], priceSorting: .none)
+    @State var tenants: [TenantModel] = TenantModel.sampleData
+    @State var filteredTenants: [TenantModel] = TenantModel.sampleData
+    
     var body: some Scene {
-        @State var tenants: [TenantModel] = TenantModel.sampleData
-        
         WindowGroup {
-            HomePage(tenants: $tenants)
+            HomePage(tenants: $tenants, filteredTenants: $filteredTenants, user: $user)
         }
     }
 }

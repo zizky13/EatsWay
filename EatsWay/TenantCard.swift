@@ -14,7 +14,7 @@ struct TenantCard: View {
     var namaTenant: String
     var minPrice: Int
     var maxPrice: Int
-    var labels: [String]
+    var labels: Set<String>
 
     var body: some View {
         VStack(alignment: .leading, spacing: 5) {
@@ -49,7 +49,7 @@ struct TenantCard: View {
             
             HStack (spacing: 10) {
                 //label dinamis, tinggal masukin data ke array
-                ForEach(labels, id: \.self) { label in
+                ForEach(Array(labels), id: \.self) { label in
                     CustomLabel(nama: label)
                 }
             }.padding(.top, 8)
