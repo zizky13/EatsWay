@@ -127,8 +127,8 @@ struct HomePage: View {
 }
 
 #Preview {
-    @Previewable @State var tenants: [TenantModel] = []
-    @Previewable @State var filteredTenants: [TenantModel] = []
+    @Previewable @State var tenants: [TenantModel] = TenantModel.sampleData
+    @Previewable @State var filteredTenants: [TenantModel] = TenantModel.sampleData
     @Previewable @State var user: UserModel = .init(
         name: "Joko", selectedLabels: [], priceSorting: .none)
     NavigationStack {
