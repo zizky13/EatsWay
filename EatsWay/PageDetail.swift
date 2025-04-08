@@ -9,9 +9,12 @@ import SwiftUI
 
 struct PageDetail: View {
     var tenant: TenantModel
+    
+    func aggregatePrice(_ price: Int){
+            print("current price: \(price)")
+    }
 
     var body: some View {
-
         ZStack {
             NavigationStack {
                 ScrollView(.vertical) {

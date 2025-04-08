@@ -5,28 +5,13 @@
 //  Created by Callista Althea Hartanto on 26/03/25.
 //
 
-// ==== CODE DIBAWAH BUAT APA YAAA??? ===== Zikar
-//        TabView {
-//                Button{
-//
-//                }   label: {
-//                    Text("AR Navigation")
-//                        .font(.headline)
-//                        .frame(maxWidth: .infinity)
-//                        .padding(.vertical, 15)
-//                        .foregroundStyle(.white)
-//                        .background(.gray, in: .capsule)
-//            }
-//
-//        }
-//        .frame(width:.infinity, height:40)
 
 import SwiftUI
 
 struct HomePage: View {
-    @Binding var tenants: [TenantModel]
-    @Binding var filteredTenants: [TenantModel]
-    @Binding var user: UserModel
+    @State var tenants: [TenantModel] = TenantSeeder.sampleData
+    @State var filteredTenants: [TenantModel] = [TenantModel]()
+    @State var user: UserModel
     @State private var isShowingFilterPage = false
 
     var body: some View {
@@ -110,7 +95,8 @@ struct HomePage: View {
                         isShowingFilterPage: $isShowingFilterPage,
                         selectedCuisines: $user.selectedLabels,
                         priceSorting: $user.priceSorting, tenants: $tenants,
-                        filteredTenants: $filteredTenants, user: $user
+                        filteredTenants: $filteredTenants, user: $user,
+                        calledFromHome: true
                     )
                     .toolbar {
                         ToolbarItem(placement: .cancellationAction) {
@@ -124,6 +110,7 @@ struct HomePage: View {
         }
         .padding(.leading, 15)
     }
+       
 }
 
 #Preview {
@@ -134,6 +121,6 @@ struct HomePage: View {
     NavigationStack {
 
         HomePage(
-            tenants: $tenants, filteredTenants: $filteredTenants, user: $user)
+            filteredTenants: filteredTenants, user: user)
     }
 }

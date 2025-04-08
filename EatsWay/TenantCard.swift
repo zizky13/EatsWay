@@ -47,12 +47,16 @@ struct TenantCard: View {
             .padding(.top, 2)
 
             
-            HStack (spacing: 10) {
-                //label dinamis, tinggal masukin data ke array
-                ForEach(Array(labels), id: \.self) { label in
-                    CustomLabel(nama: label)
+            ScrollView(.horizontal) {
+                HStack {
+                    ForEach(Array(labels), id: \.self) { label in
+                        CustomLabel(nama: label)
+                            .padding(.leading, 1)
+                    }
                 }
-            }.padding(.top, 8)
+            }
+            .padding(.top, 8)
+        
         }
         .padding(20)
         .frame(width: 210, height: 280, alignment: .center)
@@ -66,5 +70,5 @@ struct TenantCard: View {
 }
 
 #Preview {
-    TenantCard(gambar: "Mama Djempol", namaTenant: "Mama Djempol", minPrice: 10, maxPrice: 40, labels: ["Rice", "Chicken", "Fish"])
+    TenantCard(gambar: "Mama Djempol", namaTenant: "Mama Djempol", minPrice: 10, maxPrice: 40, labels: ["Rice", "Chicken", "Fish", "Test", "Jempal", "Jempil"])
 }

@@ -14,6 +14,7 @@ struct MenuModel: Identifiable {
     var description: String
     var price: Int
     
+    
     init(id: UUID = UUID(), name: String, image: String, description: String, price: Int) {
         self.id = id
         self.name = name

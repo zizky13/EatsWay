@@ -18,6 +18,7 @@ struct FilterView: View {
     @Binding var tenants: [TenantModel]
     @Binding var filteredTenants: [TenantModel]
     @Binding var user: UserModel
+    var calledFromHome: Bool
 
     func toggleCuisine(_ cuisine: String) {
         if selectedCuisines.contains(cuisine) {
@@ -59,106 +60,113 @@ struct FilterView: View {
 
     var body: some View {
         VStack(alignment: .leading) {
-            Text("Help us set your taste and budget!")
-                .font(.system(size: 26, weight: .bold))
-                .padding(.bottom, 30)
+            HStack{
+                VStack(alignment: .leading){
+                    Text("Help us set your taste and budget!")
+                        .font(.system(size: 26, weight: .bold))
+                        .padding(.bottom, 30)
 
-            VStack(alignment: .leading) {
-                Text("Cuisine Categories")
-                    .font(.system(size: 22, weight: .bold))
-                    .padding(.bottom, 20)
+                    VStack(alignment: .leading) {
+                        Text("Cuisine Categories")
+                            .font(.system(size: 22, weight: .bold))
+                            .padding(.bottom, 20)
 
-                HStack {
-                    ToggleButton(
-                        buttonText: "Rice",
-                        isSelected: selectedCuisines.contains("Rice"),
-                        action: { toggleCuisine("Rice") }
-                    ).padding(.trailing, 15)
+                        HStack {
+                            ToggleButton(
+                                buttonText: "Rice",
+                                isSelected: selectedCuisines.contains("Rice"),
+                                action: { toggleCuisine("Rice") }
+                            ).padding(.trailing, 15)
 
-                    ToggleButton(
-                        buttonText: "Noodles",
-                        isSelected: selectedCuisines.contains(
-                            "Noodles"),
-                        action: { toggleCuisine("Noodles") }
-                    ).padding(.trailing, 15)
+                            ToggleButton(
+                                buttonText: "Noodles",
+                                isSelected: selectedCuisines.contains(
+                                    "Noodles"),
+                                action: { toggleCuisine("Noodles") }
+                            ).padding(.trailing, 15)
 
-                    ToggleButton(
-                        buttonText: "Porridge",
-                        isSelected: selectedCuisines.contains(
-                            "Porridge"),
-                        action: { toggleCuisine("Porridge") }
-                    ).padding(.trailing, 15)
-                }
-
-                HStack {
-                    ToggleButton(
-                        buttonText: "Broth",
-                        isSelected: selectedCuisines.contains(
-                            "Broth"),
-                        action: { toggleCuisine("Broth") }
-                    ).padding(.trailing, 15)
-
-                    ToggleButton(
-                        buttonText: "Chicken",
-                        isSelected: selectedCuisines.contains(
-                            "Chicken"),
-                        action: { toggleCuisine("Chicken") }
-                    ).padding(.trailing, 15)
-
-                    ToggleButton(
-                        buttonText: "Beverages",
-                        isSelected: selectedCuisines.contains(
-                            "Beverages"),
-                        action: { toggleCuisine("Beverages") }
-                    ).padding(.trailing, 15)
-                }
-            }
-            .padding(.bottom, 54)
-
-            VStack(alignment: .leading) {
-                Text("Price")
-                    .font(.system(size: 22, weight: .bold))
-                    .padding(.bottom, 20)
-
-                HStack {
-                    ToggleButton(
-                        buttonText: "Low to High",
-                        isSelected: priceSorting == .lowToHigh,
-                        action: {
-                            priceSorting =
-                                priceSorting == .lowToHigh ? .none : .lowToHigh
+                            ToggleButton(
+                                buttonText: "Porridge",
+                                isSelected: selectedCuisines.contains(
+                                    "Porridge"),
+                                action: { toggleCuisine("Porridge") }
+                            ).padding(.trailing, 15)
                         }
-                    )
-                    .padding(.trailing, 15)
 
-                    ToggleButton(
-                        buttonText: "High to Low",
-                        isSelected: priceSorting == .highToLow,
-                        action: {
-                            priceSorting =
-                                priceSorting == .highToLow ? .none : .highToLow
+                        HStack {
+                            ToggleButton(
+                                buttonText: "Broth",
+                                isSelected: selectedCuisines.contains(
+                                    "Broth"),
+                                action: { toggleCuisine("Broth") }
+                            ).padding(.trailing, 15)
+
+                            ToggleButton(
+                                buttonText: "Chicken",
+                                isSelected: selectedCuisines.contains(
+                                    "Chicken"),
+                                action: { toggleCuisine("Chicken") }
+                            ).padding(.trailing, 15)
+
+                            ToggleButton(
+                                buttonText: "Beverages",
+                                isSelected: selectedCuisines.contains(
+                                    "Beverages"),
+                                action: { toggleCuisine("Beverages") }
+                            ).padding(.trailing, 15)
                         }
-                    )
-                    .padding(.trailing, 15)
-                }
+                    }
+                    .padding(.bottom, 54)
 
-            }
+                    VStack(alignment: .leading) {
+                        Text("Price")
+                            .font(.system(size: 22, weight: .bold))
+                            .padding(.bottom, 20)
 
-            Spacer()
-            HStack {
-                Spacer()
-                Button("Save") {
-                    // You can pass this back to HomeViewModel or dismiss the view
-                    applyFilters()
-                    isShowingFilterPage = false
-                    resetFilters()
+                        HStack {
+                            ToggleButton(
+                                buttonText: "Low to High",
+                                isSelected: priceSorting == .lowToHigh,
+                                action: {
+                                    priceSorting =
+                                        priceSorting == .lowToHigh ? .none : .lowToHigh
+                                }
+                            )
+                            .padding(.trailing, 15)
+
+                            ToggleButton(
+                                buttonText: "High to Low",
+                                isSelected: priceSorting == .highToLow,
+                                action: {
+                                    priceSorting =
+                                        priceSorting == .highToLow ? .none : .highToLow
+                                }
+                            )
+                            .padding(.trailing, 15)
+                        }
+
+                    }
+
+                    Spacer()
+                    if calledFromHome {
+                        HStack {
+                            Spacer()
+                            Button("Save") {
+                                // You can pass this back to HomeViewModel or dismiss the view
+                                applyFilters()
+                                isShowingFilterPage = false
+                                resetFilters()
+                            }
+                            .foregroundStyle(Color.white)
+                            .padding(10)
+                            Spacer()
+                        }
+                        .background(Color.gray)
+                        .cornerRadius(10)
+                    }
                 }
-                .foregroundStyle(Color.white)
-                .padding(10)
                 Spacer()
             }
-            .background(Color.gray)
-            .cornerRadius(10)
         }
         .padding(20)
         .padding(.top, 30)
@@ -174,5 +182,5 @@ struct FilterView: View {
     @Previewable @State var filteredTenants: [TenantModel] = []
     @Previewable @State var user: UserModel = .init(name: "Joko", selectedLabels: [], priceSorting: .none)
     
-    FilterView(isShowingFilterPage: $isShowingFilterPage, selectedCuisines: $selectedCuisines, priceSorting: $priceSorting, tenants: $tenants, filteredTenants: $filteredTenants, user: $user)
+    FilterView(isShowingFilterPage: $isShowingFilterPage, selectedCuisines: $selectedCuisines, priceSorting: $priceSorting, tenants: $tenants, filteredTenants: $filteredTenants, user: $user, calledFromHome: true)
 }

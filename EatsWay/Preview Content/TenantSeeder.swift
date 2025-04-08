@@ -7,7 +7,7 @@
 
 import Foundation
 
-extension TenantModel {
+struct TenantSeeder {
     static let sampleData: [TenantModel] = [
         TenantModel(
             image: "Mama Djempol", name: "Mama Djempol", maxPrice: 40,
