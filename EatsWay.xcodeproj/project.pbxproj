@@ -7,12 +7,25 @@
 	objects = {
 
 /* Begin PBXFileReference section */
-		B94536D12D91BE140023F765 /* EatsWay.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EatsWay.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		CC6D0D2B2DA5CBC1003F844F /* EatsWay.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = EatsWay.app; path = "/Users/louisefernando/Documents/EatsWay1/build/Debug-iphoneos/EatsWay.app"; sourceTree = "<absolute>"; };
 /* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		CC6D0D2D2DA5CC13003F844F /* Exceptions for "EatsWay" folder in "EatsWay" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = B94536D02D91BE140023F765 /* EatsWay */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		B94536D32D91BE140023F765 /* EatsWay */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				CC6D0D2D2DA5CC13003F844F /* Exceptions for "EatsWay" folder in "EatsWay" target */,
+			);
 			path = EatsWay;
 			sourceTree = "<group>";
 		};
@@ -33,16 +46,7 @@
 			isa = PBXGroup;
 			children = (
 				B94536D32D91BE140023F765 /* EatsWay */,
-				B94536D22D91BE140023F765 /* Products */,
 			);
-			sourceTree = "<group>";
-		};
-		B94536D22D91BE140023F765 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				B94536D12D91BE140023F765 /* EatsWay.app */,
-			);
-			name = Products;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -67,7 +71,7 @@
 			packageProductDependencies = (
 			);
 			productName = EatsWay;
-			productReference = B94536D12D91BE140023F765 /* EatsWay.app */;
+			productReference = CC6D0D2B2DA5CBC1003F844F /* EatsWay.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -95,7 +99,7 @@
 			mainGroup = B94536C82D91BE140023F765;
 			minimizedProjectReferenceProxies = 1;
 			preferredProjectObjectVersion = 77;
-			productRefGroup = B94536D22D91BE140023F765 /* Products */;
+			productRefGroup = B94536C82D91BE140023F765;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
@@ -252,8 +256,13 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"EatsWay/Preview Content\"";
+				DEVELOPMENT_TEAM = TMGU3KS2H3;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = EatsWay/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "we need to access your camera";
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "we need your location";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "we need your location";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -280,8 +289,13 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"EatsWay/Preview Content\"";
+				DEVELOPMENT_TEAM = TMGU3KS2H3;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = EatsWay/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "we need to access your camera";
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "we need your location";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "we need your location";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
