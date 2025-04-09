@@ -5,28 +5,26 @@
 //  Created by Zikar Nurizky on 24/03/25.
 //
 
-import SwiftUI
 import SwiftData
+import SwiftUI
 
 @main
 struct EatsWayApp: App {
-    var sharedModelContainer: ModelContainer = {
-        let schema = Schema([
-            Item.self,
-        ])
-        let modelConfiguration = ModelConfiguration(schema: schema, isStoredInMemoryOnly: false)
-
-        do {
-            return try ModelContainer(for: schema, configurations: [modelConfiguration])
-        } catch {
-            fatalError("Could not create ModelContainer: \(error)")
-        }
-    }()
+    @State var user: UserModel = UserModel(
+        name: "", selectedLabels: [], priceSorting: .none)
+    @State var tenants: [TenantModel] = TenantModel.sampleData
+    @State var filteredTenants: [TenantModel] = TenantModel.sampleData
+    @AppStorage("hasUserLogin") var hasUserLogin: Bool = false
+    @State var isShowingFilterPage: Bool = false
 
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            if hasUserLogin {
+                HomePage(filteredTenants: filteredTenants,
+                    user: user)
+            } else {
+                OnboardingView(user: $user, isShowingFilterPage: $isShowingFilterPage, selectedCuisines: $user.selectedLabels, priceSorting: $user.priceSorting, tenants: $tenants, filteredTenants: $filteredTenants)
+            }
         }
-        .modelContainer(sharedModelContainer)
     }
 }

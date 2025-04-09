@@ -8,14 +8,12 @@
 import SwiftUI
 import SwiftData
 
-
-
-
 struct Review: View {
     
     var picture: String
     var user: String
     var textreview: String
+    var rating: Int
     
 
     var body: some View {
@@ -30,12 +28,12 @@ struct Review: View {
                     Text(user)
                         .font(.headline)
                     HStack {
-                        ForEach(0..<4) { _ in
+                        ForEach(0..<rating) { _ in
                             Image(systemName: "star.fill") //GANTI
                                 .frame(width: 15)
                                 .foregroundColor(.yellow)
                         }
-                        ForEach(0..<1) { _ in
+                        ForEach(0..<5 - rating) { _ in
                             Image(systemName: "star") //GANTI
                                 .frame(width: 15)
                                 .foregroundColor(.yellow)
@@ -58,5 +56,5 @@ struct Review: View {
 }
 
 #Preview {
-    Review(picture: "Althea", user: "Althea", textreview: "Makanannya enak semua, mantap Mama Djempol")
+    Review(picture: "Althea", user: "Althea", textreview: "Makanannya enak semua, mantap Mama Djempol", rating: 4)
 }

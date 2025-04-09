@@ -10,25 +10,25 @@ import SwiftUI
 
 struct TenantCard: View {
 
-    var image: String
-    var tenant: String
-    var harga: String
-    var label1: String
-    var label2: String
+    var gambar: String
+    var namaTenant: String
+    var minPrice: Int
+    var maxPrice: Int
+    var labels: Set<String>
 
     var body: some View {
         VStack(alignment: .leading, spacing: 5) {
-            Image(image)
+            Image(gambar)
                 .resizable()
                 .frame(width: 170, height: 110)
                 .cornerRadius(10)
 
-            Text(tenant)
+            Text(namaTenant)
                 .font(.title3)
                 .bold()
                 .padding(.top, 4)
 
-            Text(harga)
+            Text("Rp \(minPrice) - Rp \(maxPrice)k")
                 .font(.body)
                 .padding(.top, 2)
 
@@ -47,10 +47,16 @@ struct TenantCard: View {
             .padding(.top, 2)
 
             
-            HStack (spacing: 10) {
-                CustomLabel(nama: label1)
-                CustomLabel(nama: label2)
-            }.padding(.top, 8)
+            ScrollView(.horizontal) {
+                HStack {
+                    ForEach(Array(labels), id: \.self) { label in
+                        CustomLabel(nama: label)
+                            .padding(.leading, 1)
+                    }
+                }
+            }
+            .padding(.top, 8)
+        
         }
         .padding(20)
         .frame(width: 210, height: 280, alignment: .center)
@@ -64,5 +70,5 @@ struct TenantCard: View {
 }
 
 #Preview {
-    TenantCard(image: "Mama Djempol", tenant: "Mama Djempol", harga: "Rp 30.000-40.000", label1: "Rice", label2: "Chicken")
+    TenantCard(gambar: "Mama Djempol", namaTenant: "Mama Djempol", minPrice: 10, maxPrice: 40, labels: ["Rice", "Chicken", "Fish", "Test", "Jempal", "Jempil"])
 }

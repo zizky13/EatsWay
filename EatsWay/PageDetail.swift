@@ -8,31 +8,32 @@
 import SwiftUI
 
 struct PageDetail: View {
+    var tenant: TenantModel
     
-    var judul: String
-    var gambar: String
-    var harga: String
-    var deskripsi: String
-    
+    func aggregatePrice(_ price: Int){
+            print("current price: \(price)")
+    }
+
     var body: some View {
-        
-        ZStack{
-            NavigationStack{
-                ScrollView (.vertical){
-                    VStack (alignment: .leading){
-                        
-                        Image(gambar)
+        ZStack {
+            NavigationStack {
+                ScrollView(.vertical) {
+                    VStack(alignment: .leading) {
+
+                        Image(tenant.image)
                             .resizable()
                             .frame(width: 410, height: 300)
                             .aspectRatio(contentMode: .fill)
-            //                .cornerRadius(20, corners: [.bottomLeft, .bottomRight])
-                        
+                            
+
                         HStack {
-                            Text(harga)
-                                .font(.title)
-                                .bold()
+                            Text(
+                                "Rp \(tenant.minPrice) - Rp \(tenant.maxPrice)k"
+                            )
+                            .font(.title)
+                            .bold()
                             Spacer()
-                            HStack{
+                            HStack {
                                 ForEach(0..<4) { _ in
                                     Image(systemName: "star.fill")
                                         .frame(width: 15)
@@ -46,93 +47,90 @@ struct PageDetail: View {
                         .padding(.top, 10)
                         .padding(.leading, 25)
                         .padding(.trailing, 25)
-                        
-                        Text("About " + judul)
+
+                        Text("About " + tenant.name)
                             .font(.title2)
                             .bold()
                             .padding(.top, 5)
                             .padding(.leading, 25)
-                        
-                        Text (deskripsi)
+
+                        Text(tenant.description)
                             .font(.headline)
                             .padding(.top, 3)
                             .frame(width: 345)
                             .padding(.leading, 25)
-                        
+
                         Text("What They Say")
                             .font(.title2)
                             .bold()
                             .padding(.top, 15)
                             .padding(.leading, 25)
-                        
-                        ScrollView (.horizontal){
+
+                        ScrollView(.horizontal) {
                             HStack {
-                                Review(picture: "Althea", user: "Althea", textreview: "Makanannya enak semua, mantap Mama Djempol")
-                                Review(picture: "Zikar Luis", user: "Zikar Luis", textreview: "Makanan oke, kurang pedes aja")
-                                Review(picture: "Althea", user: "Althea", textreview: "Makanannya enak semua, mantap Mama Djempol")
+                                ForEach(tenant.reviews) { review in
+                                    Review(
+                                        picture: review.picture,
+                                        user: review.user,
+                                        textreview: review.textreview,
+                                        rating: review.rating)
+                                    .padding(.leading, 10)
+
+                                }
                             }
                             .padding(.leading, 25)
                         }
-                        
+
                         Text("Menu")
                             .font(.title2)
                             .bold()
                             .padding(.top, 15)
                             .padding(.leading, 25)
-                        
-                        Menu(menu: "Sapi Lada Hitam", deskripsimenu: "Seporsi sapi lada hitam dengan nasi.", harga: "Rp 14.000")
+                        ForEach(tenant.menus) { menu in
+                            Menu(
+                                menu: menu.name,
+                                deskripsimenu:
+                                    menu.description, harga: "Rp \(menu.price)k"
+                            )
                             .padding(.leading, 25)
-                        Menu(menu: "Sapi Lada Hitam", deskripsimenu: "Seporsi sapi lada hitam dengan nasi.", harga: "Rp 14.000")
-                            .padding(.leading, 25)
-                        Menu(menu: "Sapi Lada Hitam", deskripsimenu: "Seporsi sapi lada hitam dengan nasi.", harga: "Rp 14.000")
-                            .padding(.leading, 25)
-                        Menu(menu: "Sapi Lada Hitam", deskripsimenu: "Seporsi sapi lada hitam dengan nasi.", harga: "Rp 14.000")
-                            .padding(.leading, 25)
-                        Menu(menu: "Sapi Lada Hitam", deskripsimenu: "Seporsi sapi lada hitam dengan nasi.", harga: "Rp 14.000")
-                            .padding(.leading, 25)
-                }
-                
-                    
-                
-                
-                    
+                        }
+
+                    }
+
                     Spacer()
                 }
-                .navigationTitle(judul)
-                
+                .navigationTitle(tenant.name)
+
             }
-            
-            VStack{
+
+            VStack {
                 Spacer()
-                HStack{
-                    Button{
-                        
-                    }   label: {
+                HStack {
+                    Button {
+
+                    } label: {
                         Text("AR Navigation")
                             .font(.headline)
                             .frame(maxWidth: .infinity)
                             .padding(.vertical, 15)
                             .foregroundStyle(.white)
                             .background(.gray, in: .capsule)
+                    }
                 }
+                .frame(width: .infinity, height: 0)
+                .padding()
             }
-            .frame(width:.infinity, height:0)
-            .padding()
-                }
-            
+
         }
-        
-        
-        
-       
-        
-//        .scrollTargetLayout()
-//        .scrollTargetBehavior(.viewAligned)
-//        .scrollBounceBehavior(.basedOnSize)
-        
+
+        //        .scrollTargetLayout()
+        //        .scrollTargetBehavior(.viewAligned)
+        //        .scrollBounceBehavior(.basedOnSize)
+
     }
 }
 
 #Preview {
-    PageDetail(judul: "Mama Djempol", gambar:"Mama Djempol", harga: "Rp 30-40K", deskripsi: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.")
+    var tenant: TenantModel = TenantModel.sampleData[0]
+    PageDetail(tenant: tenant)
 }
