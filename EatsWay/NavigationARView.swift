@@ -70,6 +70,7 @@ struct NavigationARView: View {
             let angle = getBearing(from: userLoc, to: targetLocation)
             directionAngle = angle
         }
+        .navigationBarBackButtonHidden(true)
     }
 
     // MARK: - Utility Functions

@@ -7,19 +7,23 @@
 
 import Foundation
 
-
 struct TenantModel: Identifiable {
     let id: UUID
     var image: String
     var name: String
-    var maxPrice: Int //in thousand
+    var maxPrice: Int  //in thousand
     var minPrice: Int  //in thousand
     var description: String
     var labels: Set<String>
     var menus: [MenuModel]
     var reviews: [ReviewModel]
-    
-    init(id: UUID = UUID(), image: String, name: String, maxPrice: Int, minPrice: Int, description: String, labels: Set<String>, menus: [MenuModel], reviews: [ReviewModel]) {
+    var directions: [DirectionModel]
+
+    init(
+        id: UUID = UUID(), image: String, name: String, maxPrice: Int,
+        minPrice: Int, description: String, labels: Set<String>,
+        menus: [MenuModel], reviews: [ReviewModel], directions: [DirectionModel]
+    ) {
         self.id = id
         self.image = image
         self.name = name
@@ -29,5 +33,6 @@ struct TenantModel: Identifiable {
         self.labels = labels
         self.menus = menus
         self.reviews = reviews
+        self.directions = directions
     }
 }

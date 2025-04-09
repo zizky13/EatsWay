@@ -11,7 +11,7 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
-		CC6D0D862DA6B4E1003F844F /* Exceptions for "EatsWay" folder in "EatsWay" target */ = {
+		B973D8D22DA6C25700B37CDA /* Exceptions for "EatsWay" folder in "EatsWay" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
 				Info.plist,
@@ -24,7 +24,7 @@
 		B94536D32D91BE140023F765 /* EatsWay */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
-				CC6D0D862DA6B4E1003F844F /* Exceptions for "EatsWay" folder in "EatsWay" target */,
+				B973D8D22DA6C25700B37CDA /* Exceptions for "EatsWay" folder in "EatsWay" target */,
 			);
 			path = EatsWay;
 			sourceTree = "<group>";
@@ -265,10 +265,9 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"EatsWay/Preview Content\"";
-				DEVELOPMENT_TEAM = TMGU3KS2H3;
+				DEVELOPMENT_TEAM = XWM9X5R5VK;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = EatsWay/Info.plist;
 				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				INFOPLIST_KEY_NSCameraUsageDescription = "We need to access your camera to enable AR Experience";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "This app uses your location to calculate direction and distance to your destination";
@@ -298,10 +297,9 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"EatsWay/Preview Content\"";
-				DEVELOPMENT_TEAM = TMGU3KS2H3;
+				DEVELOPMENT_TEAM = XWM9X5R5VK;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = EatsWay/Info.plist;
 				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				INFOPLIST_KEY_NSCameraUsageDescription = "We need to access your camera to enable AR Experience";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "This app uses your location to calculate direction and distance to your destination";

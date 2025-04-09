@@ -12,8 +12,8 @@ import SwiftUI
 struct EatsWayApp: App {
     @State var user: UserModel = UserModel(
         name: "", selectedLabels: [], priceSorting: .none)
-    @State var tenants: [TenantModel] = TenantModel.sampleData
-    @State var filteredTenants: [TenantModel] = TenantModel.sampleData
+    @State var tenants: [TenantModel] = TenantSeeder.sampleData
+    @State var filteredTenants: [TenantModel] = TenantSeeder.sampleData
     @AppStorage("hasUserLogin") var hasUserLogin: Bool = false
     @State var isShowingFilterPage: Bool = false
 

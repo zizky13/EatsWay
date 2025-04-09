@@ -24,7 +24,7 @@ struct PageDetail: View {
                             .resizable()
                             .frame(width: 410, height: 300)
                             .aspectRatio(contentMode: .fill)
-                        
+
                         HStack {
                             Text(
                                 "Rp \(tenant.minPrice)k - \(tenant.maxPrice)k"
@@ -89,44 +89,23 @@ struct PageDetail: View {
                             .padding(.leading, 25)
                         ForEach(tenant.menus) { menu in
                             Menu(
-                                menu: menu.name,
-                                deskripsimenu:
-                                    menu.description, harga: "Rp \(menu.price)k"
+                                name: menu.name, image: menu.image,
+                                description: menu.description, price: menu.price
                             )
                             .padding(.leading, 25)
                         }
+                        Spacer()
 
                     }
                 }
                 .navigationTitle(tenant.name)
             }
 
-            //floating nav button
-            VStack {
-                Spacer()
-                HStack {
-                    Button {
-                        navigateToNavigation.toggle()
-                    } label: {
-                        Text("Navigation")
-                            .font(.headline)
-                            .frame(maxWidth: .infinity)
-                            .padding(.vertical, 15)
-                            .foregroundStyle(.white)
-                            .background(Color.ourBlue, in: .capsule)
-                    }
-                }
-                .frame(width: 343, height: 0)
-                .padding()
-            }
+            
 
             NavigationLink(
-                destination: Direction(
-                    title: "Mama Djempol",
-                    step10: "10. Lurus sampai ujung lalu belok kanan",
-                    step11:
-                        "11. Kantin Mama Djempol ada di paling ujung sebelah kanan",
-                    step12: "12. Sampai di titik tujuan! Selamat menikmati"
+                destination: DirectionPage(
+                    tenantName: tenant.name, steps: tenant.directions
                 ),
                 isActive: $navigateToNavigation
             ) {
@@ -134,6 +113,25 @@ struct PageDetail: View {
             }
         }
         .padding(10)
+        
+        //floating nav button
+        VStack {
+            HStack {
+                Button {
+                    navigateToNavigation.toggle()
+                } label: {
+                    Text("Navigation")
+                        .font(.headline)
+                        .frame(maxWidth: .infinity)
+                        .padding(.vertical, 15)
+                        .foregroundStyle(.white)
+                        .background(Color.ourBlue, in: .capsule)
+                }
+            }
+            .frame(width: .infinity, height: 0)
+            .padding()
+        }
+        .padding(.top, 15)
 
         //        .scrollTargetLayout()
         //        .scrollTargetBehavior(.viewAligned)
@@ -143,7 +141,7 @@ struct PageDetail: View {
 }
 
 #Preview {
-    var tenant: TenantModel = TenantModel.sampleData[0]
+    var tenant: TenantModel = TenantSeeder.sampleData[0]
     NavigationStack {
         PageDetail(tenant: tenant)
     }

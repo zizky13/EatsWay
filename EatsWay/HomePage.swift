@@ -15,112 +15,116 @@ struct HomePage: View {
 
     var body: some View {
         NavigationStack {
-            HStack {
-                Text("It's Time to Eat!!")
-                    .font(.largeTitle)
-                    .bold()
-                Spacer()
-                Spacer()
-                Spacer()
+            VStack {
+                    HStack {
+                        Text("It's Time to Eat!!")
+                            .font(.largeTitle)
+                            .bold()
+                        Spacer()
+                        Spacer()
+                        Spacer()
 
-                Button(action: {
-                    isShowingFilterPage = true
-                }) {
-                    Image(systemName: "line.3.horizontal.decrease")
-                        .font(.title2)
-                        .foregroundColor(.blue)
-                }
-                Spacer()
-            }
-            .padding(.top, 16)
+                        Button(action: {
+                            isShowingFilterPage = true
+                        }) {
+                            Image(systemName: "line.3.horizontal.decrease")
+                                .font(.title2)
+                                .foregroundColor(.blue)
+                        }
+                        Spacer()
+                    }
+                    .padding(.top, 16)
+                    .padding(.leading, 16)
 
-            ScrollView(.vertical) {
-                VStack(alignment: .leading) {
-                    // Header
+                    ScrollView(.vertical) {
+                        VStack(alignment: .leading) {
+                            // Header
 
-                    Text("Recommendations")
-                        .font(.title2)
-                        .bold()
-                        .padding(.top, 5)
+                            Text("Recommendations")
+                                .font(.title2)
+                                .bold()
+                                .padding(.top, 5)
 
-                    ScrollView(.horizontal) {
-                        HStack {
-                            ForEach(filteredTenants) { tenant in
-                                NavigationLink(
-                                    destination: PageDetail(tenant: tenant)
-                                ) {
-                                    TenantCard(
-                                        gambar: tenant.image,
-                                        namaTenant: tenant.name,
-                                        minPrice: tenant.minPrice,
-                                        maxPrice: tenant.maxPrice,
-                                        labels: tenant.labels
-                                    )
-                                    .padding(.horizontal, 5)
-                                    .padding(.vertical, 1)
+                            ScrollView(.horizontal) {
+                                HStack {
+                                    ForEach(filteredTenants) { tenant in
+                                        NavigationLink(
+                                            destination: PageDetail(tenant: tenant)
+                                        ) {
+                                            TenantCard(
+                                                gambar: tenant.image,
+                                                namaTenant: tenant.name,
+                                                minPrice: tenant.minPrice,
+                                                maxPrice: tenant.maxPrice,
+                                                labels: tenant.labels
+                                            )
+                                            .padding(.horizontal, 5)
+                                            .padding(.vertical, 1)
+                                        }
+                                        .buttonStyle(PlainButtonStyle())
+                                    }
                                 }
-                                .buttonStyle(PlainButtonStyle())
                             }
-                        }
-                    }
-                    .padding(.top, 10)
+                            .padding(.top, 10)
 
-                    //NEED TO APPLY RATING SORTING FEATURE
-                    Text("Top Ratings")
-                        .font(.title2)
-                        .bold()
-                        .padding(.top, 20)
+                            //NEED TO APPLY RATING SORTING FEATURE
+                            Text("Top Ratings")
+                                .font(.title2)
+                                .bold()
+                                .padding(.top, 20)
 
-                    ScrollView(.horizontal) {
-                        HStack {
-                            ForEach(filteredTenants) { tenant in
-                                NavigationLink(
-                                    destination: PageDetail(tenant: tenant)
-                                ) {
-                                    TenantCard(
-                                        gambar: tenant.image,
-                                        namaTenant: tenant.name,
-                                        minPrice: tenant.minPrice,
-                                        maxPrice: tenant.maxPrice,
-                                        labels: tenant.labels
-                                    )
-                                    .padding(.horizontal, 5)
-                                    .padding(.vertical, 1)
+                            ScrollView(.horizontal) {
+                                HStack {
+                                    ForEach(filteredTenants) { tenant in
+                                        NavigationLink(
+                                            destination: PageDetail(tenant: tenant)
+                                        ) {
+                                            TenantCard(
+                                                gambar: tenant.image,
+                                                namaTenant: tenant.name,
+                                                minPrice: tenant.minPrice,
+                                                maxPrice: tenant.maxPrice,
+                                                labels: tenant.labels
+                                            )
+                                            .padding(.horizontal, 5)
+                                            .padding(.vertical, 1)
+                                        }
+                                        .buttonStyle(PlainButtonStyle())
+                                    }
                                 }
-                                .buttonStyle(PlainButtonStyle())
-                            }
-                        }
-                        .padding(.top, 10)
-                    }
-                }
-            }
-            .sheet(isPresented: $isShowingFilterPage) {
-                NavigationStack {
-                    FilterView(
-                        isShowingFilterPage: $isShowingFilterPage,
-                        selectedCuisines: $user.selectedLabels,
-                        priceSorting: $user.priceSorting, tenants: $tenants,
-                        filteredTenants: $filteredTenants, user: $user,
-                        calledFromHome: true
-                    )
-                    .toolbar {
-                        ToolbarItem(placement: .cancellationAction) {
-                            Button("Cancel") {
-                                isShowingFilterPage = false
+                                .padding(.top, 10)
                             }
                         }
                     }
-                }
+                    .sheet(isPresented: $isShowingFilterPage) {
+                        NavigationStack {
+                            FilterView(
+                                isShowingFilterPage: $isShowingFilterPage,
+                                selectedCuisines: $user.selectedLabels,
+                                priceSorting: $user.priceSorting, tenants: $tenants,
+                                filteredTenants: $filteredTenants, user: $user,
+                                calledFromHome: true
+                            )
+                            .toolbar {
+                                ToolbarItem(placement: .cancellationAction) {
+                                    Button("Cancel") {
+                                        isShowingFilterPage = false
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    .padding(.leading, 16)
             }
         }
-        .padding(.leading, 16)
+        
     }
 
 }
 
 #Preview {
-    @Previewable @State var tenants: [TenantModel] = TenantModel.sampleData
-    @Previewable @State var filteredTenants: [TenantModel] = TenantModel
+    @Previewable @State var tenants: [TenantModel] = TenantSeeder.sampleData
+    @Previewable @State var filteredTenants: [TenantModel] = TenantSeeder
         .sampleData
     @Previewable @State var user: UserModel = .init(
         name: "Joko", selectedLabels: [], priceSorting: .none)

@@ -10,26 +10,27 @@ import SwiftData
 
 struct Menu: View {
     
-    var menu: String
-    var deskripsimenu: String
-    var harga: String
+    var name: String
+    var image: String
+    var description: String
+    var price: Int
     
     var body: some View {
         HStack(spacing: 15){
-            Image("Mama Djempol")
+            Image(image)
                 .resizable()
 //                .scaledToFit()
                 .aspectRatio(CGSize(width: 100, height: 100), contentMode: .fit)
                 .frame(width: 100)
                 .cornerRadius(10)
             VStack(alignment: .leading, spacing:8) {
-                Text(menu)
+                Text(name)
                     .font(.title3)
                     .bold()
-                Text(deskripsimenu)
+                Text(description)
                     .font(.body)
                     .lineLimit(2)
-                Text(harga)
+                Text("Rp. \(price)k")
                     .font(.subheadline)
                     .bold()
             }
@@ -41,5 +42,5 @@ struct Menu: View {
 }
 
 #Preview {
-    Menu(menu: "Sapi Lada Hitam", deskripsimenu: "Seporsi sapi lada hitam dengan nasi.", harga: "Rp 14.000")
+    Menu(name: "Ayam Lada Hitam", image: "Ayam Lada Hitam", description: "Ayam lada Hitam", price: 14)
 }

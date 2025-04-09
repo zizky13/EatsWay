@@ -62,9 +62,8 @@ struct OnboardingView: View {
 
     var body: some View {
         ZStack {
-            //content
             switch onboardingState {
-            case 0:  //debatable
+            case 0:
                 logoView
                     .transition(transition)
             case 1:
@@ -98,7 +97,7 @@ extension OnboardingView {
                 ? "Get Started" : onboardingState == 2 ? "Let's Rock!!" : "Next"
         )
         .font(.headline)
-        .foregroundColor(.black)
+        .foregroundColor(.white)
         .frame(height: 55)
         .frame(maxWidth: 343)
         .background(Color.darkBlue)
