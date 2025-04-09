@@ -13,9 +13,9 @@ struct Direction: View {
     var step10: String
     var step11: String
     var step12: String
+    @State var navigateToAR: Bool = false
 
     var body: some View {
-        @State var navigateToAR: Bool = false
         NavigationStack {
             ScrollView(.vertical) {
 
@@ -209,13 +209,13 @@ struct Direction: View {
             }
             .navigationTitle(title)
             
-//            NavigationLink(
-//                destination: masukin nama viewnya ()
-//                ),
-//                isActive: $navigateToAR
-//            ) {
-//                EmptyView()
-//            }
+            NavigationLink(
+                destination: NavigationARView()
+                ,
+            isActive: $navigateToAR
+            ) {
+                EmptyView()
+            }
         }
 
     }

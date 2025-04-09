@@ -10,9 +10,22 @@
 		B94536D12D91BE140023F765 /* EatsWay.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EatsWay.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		CC6D0D862DA6B4E1003F844F /* Exceptions for "EatsWay" folder in "EatsWay" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = B94536D02D91BE140023F765 /* EatsWay */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		B94536D32D91BE140023F765 /* EatsWay */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				CC6D0D862DA6B4E1003F844F /* Exceptions for "EatsWay" folder in "EatsWay" target */,
+			);
 			path = EatsWay;
 			sourceTree = "<group>";
 		};
@@ -252,9 +265,13 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"EatsWay/Preview Content\"";
-				DEVELOPMENT_TEAM = XWM9X5R5VK;
+				DEVELOPMENT_TEAM = TMGU3KS2H3;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = EatsWay/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
+				INFOPLIST_KEY_NSCameraUsageDescription = "We need to access your camera to enable AR Experience";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "This app uses your location to calculate direction and distance to your destination";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -281,9 +298,13 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"EatsWay/Preview Content\"";
-				DEVELOPMENT_TEAM = XWM9X5R5VK;
+				DEVELOPMENT_TEAM = TMGU3KS2H3;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = EatsWay/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
+				INFOPLIST_KEY_NSCameraUsageDescription = "We need to access your camera to enable AR Experience";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "This app uses your location to calculate direction and distance to your destination";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
