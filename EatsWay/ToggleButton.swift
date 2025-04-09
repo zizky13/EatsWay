@@ -21,11 +21,11 @@ struct ToggleButton: View {
             Text(buttonText)
                 .font(.system(size: 13))
                 .padding(10)
-                .foregroundColor(isSelected ? .white : .gray)
-                .background(isSelected ? Color.gray : Color.clear)
+                .foregroundColor(isSelected ? .white : Color.ourOrange)
+                .background(isSelected ? Color.ourOrange : Color.clear)
                 .overlay(
                     RoundedRectangle(cornerRadius: 10)
-                        .stroke(Color.gray, lineWidth: 2)
+                        .stroke(Color.ourOrange, lineWidth: 2)
                 )
                 .cornerRadius(10)
         }

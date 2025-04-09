@@ -5,7 +5,6 @@
 //  Created by Callista Althea Hartanto on 26/03/25.
 //
 
-
 import SwiftUI
 
 struct HomePage: View {
@@ -16,33 +15,33 @@ struct HomePage: View {
 
     var body: some View {
         NavigationStack {
+            HStack {
+                Text("It's Time to Eat!!")
+                    .font(.largeTitle)
+                    .bold()
+                Spacer()
+                Spacer()
+                Spacer()
+
+                Button(action: {
+                    isShowingFilterPage = true
+                }) {
+                    Image(systemName: "line.3.horizontal.decrease")
+                        .font(.title2)
+                        .foregroundColor(.blue)
+                }
+                Spacer()
+            }
+            .padding(.top, 16)
+
             ScrollView(.vertical) {
                 VStack(alignment: .leading) {
                     // Header
-                    HStack {
-                        Text("Hi \(user.name)")
-                            .font(.largeTitle)
-                            .bold()
-
-                        Spacer()
-
-                        Button(action: {
-                            isShowingFilterPage = true
-                        }) {
-                            Image(systemName: "line.3.horizontal.decrease")
-                                .font(.title2)
-                                .foregroundColor(.blue)
-                        }
-                    }
-
-                    Text("It's Time to Eat")
-                        .font(.largeTitle)
-                        .bold()
 
                     Text("Recommendations")
                         .font(.title2)
                         .bold()
-                        .padding(.top, 10)
+                        .padding(.top, 5)
 
                     ScrollView(.horizontal) {
                         HStack {
@@ -55,7 +54,10 @@ struct HomePage: View {
                                         namaTenant: tenant.name,
                                         minPrice: tenant.minPrice,
                                         maxPrice: tenant.maxPrice,
-                                        labels: tenant.labels)
+                                        labels: tenant.labels
+                                    )
+                                    .padding(.horizontal, 5)
+                                    .padding(.vertical, 1)
                                 }
                                 .buttonStyle(PlainButtonStyle())
                             }
@@ -63,6 +65,7 @@ struct HomePage: View {
                     }
                     .padding(.top, 10)
 
+                    //NEED TO APPLY RATING SORTING FEATURE
                     Text("Top Ratings")
                         .font(.title2)
                         .bold()
@@ -79,14 +82,16 @@ struct HomePage: View {
                                         namaTenant: tenant.name,
                                         minPrice: tenant.minPrice,
                                         maxPrice: tenant.maxPrice,
-                                        labels: tenant.labels)
+                                        labels: tenant.labels
+                                    )
+                                    .padding(.horizontal, 5)
+                                    .padding(.vertical, 1)
                                 }
                                 .buttonStyle(PlainButtonStyle())
                             }
                         }
                         .padding(.top, 10)
                     }
-                    .padding(.horizontal, 15)
                 }
             }
             .sheet(isPresented: $isShowingFilterPage) {
@@ -108,14 +113,15 @@ struct HomePage: View {
                 }
             }
         }
-        .padding(.leading, 15)
+        .padding(.leading, 16)
     }
-       
+
 }
 
 #Preview {
     @Previewable @State var tenants: [TenantModel] = TenantModel.sampleData
-    @Previewable @State var filteredTenants: [TenantModel] = TenantModel.sampleData
+    @Previewable @State var filteredTenants: [TenantModel] = TenantModel
+        .sampleData
     @Previewable @State var user: UserModel = .init(
         name: "Joko", selectedLabels: [], priceSorting: .none)
     NavigationStack {

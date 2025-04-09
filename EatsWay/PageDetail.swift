@@ -8,10 +8,11 @@
 import SwiftUI
 
 struct PageDetail: View {
+    @State var navigateToNavigation: Bool = false
     var tenant: TenantModel
-    
-    func aggregatePrice(_ price: Int){
-            print("current price: \(price)")
+
+    func aggregatePrice(_ price: Int) {
+        print("current price: \(price)")
     }
 
     var body: some View {
@@ -19,16 +20,14 @@ struct PageDetail: View {
             NavigationStack {
                 ScrollView(.vertical) {
                     VStack(alignment: .leading) {
-
                         Image(tenant.image)
                             .resizable()
                             .frame(width: 410, height: 300)
                             .aspectRatio(contentMode: .fill)
-                            
-
+                        
                         HStack {
                             Text(
-                                "Rp \(tenant.minPrice) - Rp \(tenant.maxPrice)k"
+                                "Rp \(tenant.minPrice)k - \(tenant.maxPrice)k"
                             )
                             .font(.title)
                             .bold()
@@ -73,12 +72,14 @@ struct PageDetail: View {
                                         picture: review.picture,
                                         user: review.user,
                                         textreview: review.textreview,
-                                        rating: review.rating)
+                                        rating: review.rating
+                                    )
                                     .padding(.leading, 10)
+                                    .padding(.vertical, 2)
 
                                 }
                             }
-                            .padding(.leading, 25)
+                            .padding(.leading, 15)
                         }
 
                         Text("Menu")
@@ -96,32 +97,43 @@ struct PageDetail: View {
                         }
 
                     }
-
-                    Spacer()
                 }
                 .navigationTitle(tenant.name)
-
             }
 
+            //floating nav button
             VStack {
                 Spacer()
                 HStack {
                     Button {
-
+                        navigateToNavigation.toggle()
                     } label: {
-                        Text("AR Navigation")
+                        Text("Navigation")
                             .font(.headline)
                             .frame(maxWidth: .infinity)
                             .padding(.vertical, 15)
                             .foregroundStyle(.white)
-                            .background(.gray, in: .capsule)
+                            .background(Color.ourBlue, in: .capsule)
                     }
                 }
-                .frame(width: .infinity, height: 0)
+                .frame(width: 343, height: 0)
                 .padding()
             }
 
+            NavigationLink(
+                destination: Direction(
+                    title: "Mama Djempol",
+                    step10: "10. Lurus sampai ujung lalu belok kanan",
+                    step11:
+                        "11. Kantin Mama Djempol ada di paling ujung sebelah kanan",
+                    step12: "12. Sampai di titik tujuan! Selamat menikmati"
+                ),
+                isActive: $navigateToNavigation
+            ) {
+                EmptyView()
+            }
         }
+        .padding(10)
 
         //        .scrollTargetLayout()
         //        .scrollTargetBehavior(.viewAligned)
@@ -132,5 +144,7 @@ struct PageDetail: View {
 
 #Preview {
     var tenant: TenantModel = TenantModel.sampleData[0]
-    PageDetail(tenant: tenant)
+    NavigationStack {
+        PageDetail(tenant: tenant)
+    }
 }

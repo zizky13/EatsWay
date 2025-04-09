@@ -91,22 +91,30 @@ struct FilterView: View {
                                     "Porridge"),
                                 action: { toggleCuisine("Porridge") }
                             ).padding(.trailing, 15)
+                            
+                            ToggleButton(
+                                buttonText: "Snacks",
+                                isSelected: selectedCuisines.contains(
+                                    "Snacks"),
+                                action: { toggleCuisine("Snacks") }
+                            ).padding(.trailing, 15)
                         }
 
                         HStack {
                             ToggleButton(
-                                buttonText: "Broth",
+                                buttonText: "Bakso",
                                 isSelected: selectedCuisines.contains(
-                                    "Broth"),
-                                action: { toggleCuisine("Broth") }
+                                    "Bakso"),
+                                action: { toggleCuisine("Bakso") }
+                            ).padding(.trailing, 15)
+                            
+                            ToggleButton(
+                                buttonText: "Soto",
+                                isSelected: selectedCuisines.contains(
+                                    "Soto"),
+                                action: { toggleCuisine("Soto") }
                             ).padding(.trailing, 15)
 
-                            ToggleButton(
-                                buttonText: "Chicken",
-                                isSelected: selectedCuisines.contains(
-                                    "Chicken"),
-                                action: { toggleCuisine("Chicken") }
-                            ).padding(.trailing, 15)
 
                             ToggleButton(
                                 buttonText: "Beverages",
@@ -115,6 +123,30 @@ struct FilterView: View {
                                 action: { toggleCuisine("Beverages") }
                             ).padding(.trailing, 15)
                         }
+                        
+                        HStack{
+                            ToggleButton(
+                                buttonText: "Chicken",
+                                isSelected: selectedCuisines.contains(
+                                    "Chicken"),
+                                action: { toggleCuisine("Chicken") }
+                            ).padding(.trailing, 15)
+                            
+                            ToggleButton(
+                                buttonText: "Padang",
+                                isSelected: selectedCuisines.contains(
+                                    "Padang"),
+                                action: { toggleCuisine("Padang") }
+                            ).padding(.trailing, 15)
+                            
+                            ToggleButton(
+                                buttonText: "Vegetables",
+                                isSelected: selectedCuisines.contains(
+                                    "Vegetables"),
+                                action: { toggleCuisine("Vegetables") }
+                            ).padding(.trailing, 15)
+                        }
+                        
                     }
                     .padding(.bottom, 54)
 
@@ -161,7 +193,7 @@ struct FilterView: View {
                             .padding(10)
                             Spacer()
                         }
-                        .background(Color.gray)
+                        .background(Color.ourBlue)
                         .cornerRadius(10)
                     }
                 }

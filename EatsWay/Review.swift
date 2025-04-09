@@ -48,9 +48,9 @@ struct Review: View {
         }
         .padding(.all,15)
         .frame(width: 210, height: 130, alignment: .leading)
-        .background(Color.gray.opacity(0.1))
+        .background(Color.white)
         .cornerRadius(10)
-        
+        .shadow(radius: 0.5)
         
     }
 }

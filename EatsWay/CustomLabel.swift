@@ -19,7 +19,7 @@ struct CustomLabel: View {
                 .foregroundColor(.white)
                 .padding(.vertical, 7)
                 .padding(.horizontal, 10)
-                .background(.gray)
+                .background(Color.orange)
                 .clipShape(RoundedRectangle(cornerRadius: 10))
         } icon: {
         }

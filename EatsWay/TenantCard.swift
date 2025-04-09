@@ -28,7 +28,7 @@ struct TenantCard: View {
                 .bold()
                 .padding(.top, 4)
 
-            Text("Rp \(minPrice) - Rp \(maxPrice)k")
+            Text("Rp \(minPrice)k - \(maxPrice)k")
                 .font(.body)
                 .padding(.top, 2)
 
@@ -46,7 +46,6 @@ struct TenantCard: View {
             }
             .padding(.top, 2)
 
-            
             ScrollView(.horizontal) {
                 HStack {
                     ForEach(Array(labels), id: \.self) { label in
@@ -56,19 +55,20 @@ struct TenantCard: View {
                 }
             }
             .padding(.top, 8)
-        
+
         }
         .padding(20)
         .frame(width: 210, height: 280, alignment: .center)
-        .background(Color.gray.opacity(0.1))
+        .background(Color.white)
         .cornerRadius(10)
+        .shadow(radius: 0.5)
 
-        
-        
-        
     }
 }
 
 #Preview {
-    TenantCard(gambar: "Mama Djempol", namaTenant: "Mama Djempol", minPrice: 10, maxPrice: 40, labels: ["Rice", "Chicken", "Fish", "Test", "Jempal", "Jempil"])
+    TenantCard(
+        gambar: "Mama Djempol", namaTenant: "Mama Djempol", minPrice: 10,
+        maxPrice: 40,
+        labels: ["Rice", "Chicken", "Fish", "Test", "Jempal", "Jempil"])
 }
