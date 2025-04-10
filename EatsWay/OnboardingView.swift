@@ -10,7 +10,7 @@ import SwiftUI
 struct OnboardingView: View {
     @Binding var user: UserModel
     @State private var onboardingState = 0
-    @AppStorage("hasUserLogin") var hasUserLogin: Bool = false
+    @Binding var hasUserLogin: Bool
     @Binding var isShowingFilterPage: Bool
     @Binding var selectedCuisines: Set<String>
     @Binding var priceSorting: PriceSortingOption
@@ -110,12 +110,11 @@ extension OnboardingView {
     func handleNextButtonPressed() {
         if onboardingState == 1 {
             applyFilters()
-            print(selectedCuisines)
             isShowingFilterPage = false
             resetFilters()
             onboardingState += 1
         } else if onboardingState == 2 {
-                        hasUserLogin = true
+                    hasUserLogin = true
         } else {
             withAnimation(.spring()) {
                 onboardingState += 1
@@ -182,9 +181,10 @@ extension OnboardingView {
     @Previewable @State var filteredTenants: [TenantModel] = []
     @Previewable @State var user: UserModel = .init(
         name: "Joko", selectedLabels: [], priceSorting: .none)
+    @Previewable @State var hasUserLogin: Bool = false
 
     OnboardingView(
-        user: $user, isShowingFilterPage: $isShowingFilterPage,
+        user: $user, hasUserLogin: $hasUserLogin, isShowingFilterPage: $isShowingFilterPage,
         selectedCuisines: $selectedCuisines, priceSorting: $priceSorting,
         tenants: $tenants, filteredTenants: $filteredTenants)
 }

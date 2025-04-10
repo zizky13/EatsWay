@@ -14,7 +14,7 @@ struct EatsWayApp: App {
         name: "", selectedLabels: [], priceSorting: .none)
     @State var tenants: [TenantModel] = TenantSeeder.sampleData
     @State var filteredTenants: [TenantModel] = TenantSeeder.sampleData
-    @AppStorage("hasUserLogin") var hasUserLogin: Bool = false
+    @State var hasUserLogin: Bool = false
     @State var isShowingFilterPage: Bool = false
 
     var body: some Scene {
@@ -23,7 +23,7 @@ struct EatsWayApp: App {
                 HomePage(filteredTenants: filteredTenants,
                     user: user)
             } else {
-                OnboardingView(user: $user, isShowingFilterPage: $isShowingFilterPage, selectedCuisines: $user.selectedLabels, priceSorting: $user.priceSorting, tenants: $tenants, filteredTenants: $filteredTenants)
+                OnboardingView(user: $user, hasUserLogin: $hasUserLogin, isShowingFilterPage: $isShowingFilterPage, selectedCuisines: $user.selectedLabels, priceSorting: $user.priceSorting, tenants: $tenants, filteredTenants: $filteredTenants)
             }
         }
     }

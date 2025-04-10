@@ -183,14 +183,19 @@ struct FilterView: View {
                     if calledFromHome {
                         HStack {
                             Spacer()
-                            Button("Save") {
+                            Button {
                                 // You can pass this back to HomeViewModel or dismiss the view
                                 applyFilters()
                                 isShowingFilterPage = false
                                 resetFilters()
+                            } label: {
+                                Text("Save")
+                                    .font(.headline)
+                                    .frame(maxWidth: .infinity)
+                                    .padding(.vertical, 15)
+                                    .foregroundStyle(.white)
+                                    .background(Color.ourBlue, in: .capsule)
                             }
-                            .foregroundStyle(Color.white)
-                            .padding(10)
                             Spacer()
                         }
                         .background(Color.ourBlue)
