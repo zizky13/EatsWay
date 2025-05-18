@@ -7,16 +7,16 @@
 
 import SwiftUI
 
-struct DestinationCard: View {
-    @State var startingLocationName: String
-    @State var backgroundColor: Color
-    @State var distanceFromUser: Double
+struct StartingLocationCard: View {
+    let startingLocationName: String
+    let distanceFromUser: Double
+    @Binding var isSelected: Bool
+    let onTap: (() -> Void)?  // Optional, in case additional tap actions are needed
 
     var body: some View {
-        Button (action: {
-            withAnimation{
-                print("hello")
-            }
+        Button(action: {
+            isSelected.toggle()  // Toggle selection state
+            onTap?()  // Call onTap if provided
         }) {
             HStack {
                 Spacer()
@@ -25,7 +25,7 @@ struct DestinationCard: View {
                     Image(systemName: "mappin")
                         .foregroundColor(.gray)
                         .font(.system(size: 24))
-                    Text(String(distanceFromUser) + " km")
+                    Text(String(format: "%.2f km", distanceFromUser))
                         .font(.system(size: 8))
                 }
                 Spacer()
@@ -36,13 +36,15 @@ struct DestinationCard: View {
             }
             .padding(.horizontal, 8)
             .frame(width: 393, height: 44)
-            .background(backgroundColor.opacity(0.3))
+            .background(isSelected ? Color.blue.opacity(0.3) : Color.white)
         }
     }
 }
 
-#Preview {
-    DestinationCard(
-        startingLocationName: "Destination", backgroundColor: Color.ourBlue,
-        distanceFromUser: 0.02)
-}
+//#Preview {
+//    DestinationCard(
+//        startingLocationName: "Destination",
+//        distanceFromUser: 0.02, isSelected: ) {
+//            print("text")
+//        }
+//}

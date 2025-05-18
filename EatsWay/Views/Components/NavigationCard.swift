@@ -32,7 +32,8 @@ struct NavigationCard: View {
                 .shadow(radius: 5)
             Image(step.image)
                 .resizable()
-                .scaledToFit()
+                .scaledToFill()
+                .cornerRadius(20)
             
             VStack {
                 ZStack(alignment: .topLeading) {
@@ -42,7 +43,7 @@ struct NavigationCard: View {
                     .fill(
                         LinearGradient(
                             gradient: Gradient(colors: [
-                                Color.black.opacity(0.6), Color.white,
+                                Color.black.opacity(0.7), Color.white.opacity(0.3),
                             ]),
                             startPoint: .top,
                             endPoint: .bottom
@@ -53,7 +54,7 @@ struct NavigationCard: View {
                         .foregroundStyle(Color.white)
                         .padding(24)
                 }
-                .frame(maxHeight: 144)
+                .frame(maxHeight: 75)
                 Spacer()
                 
                 ZStack {
@@ -63,7 +64,7 @@ struct NavigationCard: View {
                     .fill(
                         LinearGradient(
                             gradient: Gradient(colors: [
-                                Color.black.opacity(0.6), Color.white,
+                                    Color.black.opacity(0.6), Color.white.opacity(0.3),
                             ]),
                             startPoint: .bottom,
                             endPoint: .top
@@ -74,15 +75,16 @@ struct NavigationCard: View {
                         .foregroundStyle(Color.white)
                         .padding(24)
                 }
-                .frame(maxHeight: 144)
+                .frame(maxHeight: 111)
                 
             }
             
         }
         .padding()
+        .frame(height: 624)
     }
 }
 
 #Preview {
-    NavigationCard(step: DirectionModel(instruction: "Go to hell", image: "Ayam Lada Hitam"))
+    NavigationCard(step: DirectionModel(instruction: "Go to hell", image: "STEP1"))
 }

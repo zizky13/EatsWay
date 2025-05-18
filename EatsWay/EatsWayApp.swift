@@ -19,7 +19,9 @@ struct EatsWayApp: App {
 
     var body: some Scene {
         WindowGroup {
-            MapView()
+            NavigationStack {
+                DestinationPickingView()
+            }
 //            if hasUserLogin {
 //                HomePage(filteredTenants: filteredTenants,
 //                    user: user)

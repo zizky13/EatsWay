@@ -9,42 +9,58 @@ import CoreLocation
 import Foundation
 import MapKit
 
-class MapViewModel: ObservableObject {
-    @Published var region = MKCoordinateRegion(
-        center: CLLocationCoordinate2D(latitude: 37.7749, longitude: -122.4194),
-        span: MKCoordinateSpan(latitudeDelta: 0.05, longitudeDelta: 0.05)
-    )
-    private let locationManager = LocationManager()
-    private let radius: Double = 1000 // 1km filter radius
-    
-//    init() {
-//        locationManager.onLocationUpdate = { [weak self] location in
-//            self?.updateRegionAndAnnotations(with: location)
-//        }
-//    }
-    
-    func requestLocation() {
-        locationManager.requestLocation()
+class MapViewModel: NSObject, ObservableObject, CLLocationManagerDelegate {
+    @Published var userLocation: CLLocationCoordinate2D?
+    @Published var polyline: MKPolyline?
+
+    let startingLocationViewModel: StartingLocationViewModel
+    private let locationManager = CLLocationManager()
+    private let radius: Double = 1000  // 1km filter radius
+
+    init(startingLocationViewModel: StartingLocationViewModel) {
+        self.startingLocationViewModel = startingLocationViewModel
+        super.init()
+        self.locationManager.delegate = self
+        self.locationManager.requestWhenInUseAuthorization()
+        self.locationManager.startUpdatingLocation()
     }
-    
-    private func updateRegionAndAnnotations(with location: CLLocation) {
-        region = MKCoordinateRegion(
-            center: location.coordinate,
-            latitudinalMeters: radius * 2,
-            longitudinalMeters: radius * 2
-        )
-        
-//        annotations = samplePoints
-//            .filter { point in
-//                let pointLocation = CLLocation(latitude: point.0, longitude: point.1)
-//                let distance = location.distance(from: pointLocation)
-//                return distance <= radius
-//            }
-//            .map { point in
-//                IdentifiablePoint(
-//                    id: UUID(),
-//                    coordinate: CLLocationCoordinate2D(latitude: point.0, longitude: point.1)
-//                )
-//            }
+
+    func locationManager(
+        _ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]
+    ) {
+        guard let location = locations.last else { return }
+        userLocation = location.coordinate
+        updatePolyLine()
+    }
+
+    func locationManager(
+        _ manager: CLLocationManager, didFailWithError error: Error
+    ) {
+        print("Location error: \(error.localizedDescription)")
+    }
+
+    private func updatePolyLine() {
+        guard let userLocation = userLocation,
+            let destination = startingLocationViewModel.selectedDestination
+        else {
+            polyline = nil
+            return
+        }
+
+        let coordinates = [
+            userLocation,
+            destination.coordinate,
+        ]
+        polyline = MKPolyline(
+            coordinates: coordinates, count: coordinates.count)
+    }
+
+    func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
+        switch manager.authorizationStatus {
+        case .authorizedWhenInUse, .authorizedAlways:
+            locationManager.startUpdatingLocation()
+        default:
+            polyline = nil
+        }
     }
 }
