@@ -118,7 +118,7 @@ struct PageDetail: View {
         VStack {
             HStack {
                 Button {
-                    navigateToNavigation.toggle()
+                    
                 } label: {
                     Text("Navigation")
                         .font(.headline)

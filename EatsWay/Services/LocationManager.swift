@@ -39,4 +39,8 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateHeading newHeading: CLHeading) {
         heading = newHeading
     }
+    
+    func requestLocation() {
+        manager.requestLocation()
+    }
 }

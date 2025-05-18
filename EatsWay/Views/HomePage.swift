@@ -38,13 +38,13 @@ struct HomePage: View {
 
                     ScrollView(.vertical) {
                         VStack(alignment: .leading) {
-                            // Header
-
                             Text("Recommendations")
                                 .font(.title2)
                                 .bold()
                                 .padding(.top, 5)
-
+                            
+                            
+                            //Showing list of all filtered tenants in Horizontal scrollview manner
                             ScrollView(.horizontal) {
                                 HStack {
                                     ForEach(filteredTenants) { tenant in

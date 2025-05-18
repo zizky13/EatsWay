@@ -15,9 +15,7 @@ struct DirectionPage: View {
     var body: some View {
         NavigationStack {
             ScrollView(.vertical) {
-
                 VStack(alignment: .leading) {
-
                     Text(
                         "Ikutin arahan berikut untuk sampai di kantin Mama Djempol!"
                     )
@@ -27,7 +25,7 @@ struct DirectionPage: View {
 
                     ForEach(steps) {
                         step in
-                        StepsCard(step: step.step, image: step.image)
+                        StepsCard(step: step.instruction, image: step.image)
                     }
                 }
                 Spacer()

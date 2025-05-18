@@ -9,12 +9,12 @@ import Foundation
 
 struct DirectionModel: Identifiable {
     var id: UUID
-    var step: String
+    var instruction: String
     var image: String
     
-    init(id: UUID=UUID(), step: String, image: String) {
+    init(id: UUID=UUID(), instruction: String, image: String) {
         self.id = id
-        self.step = step
+        self.instruction = instruction
         self.image = image
     }
 }

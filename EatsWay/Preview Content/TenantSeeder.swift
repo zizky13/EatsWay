@@ -44,45 +44,45 @@ struct TenantSeeder {
             ],
             directions: [
                 DirectionModel(
-                    step: "1. Keluar dari pintu depan Apple Academy.",
-                    image: "STEP1"),
+                    instruction: "1. Keluar dari pintu depan Apple Academy.",
+                    image: "instruction1"),
                 DirectionModel(
-                    step:
+                    instruction:
                         "2. Dari pintu keluar Apple Developer Academy belok kiri untuk menuju ke arah basement.",
-                    image: "STEP2"),
+                    image: "instruction2"),
                 DirectionModel(
-                    step:
+                    instruction:
                         "3. Lurus dan belok kanan untuk turun ke arah basement.",
-                    image: "STEP3"),
+                    image: "instruction3"),
                 DirectionModel(
-                    step:
+                    instruction:
                         "4. Lurus terus dan turun menggunakan tangga atau lift",
-                    image: "STEP4"),
+                    image: "instruction4"),
                 DirectionModel(
-                    step:
+                    instruction:
                         "5. Turun dari tangga belok kanan untuk keluar Basement",
-                    image: "STEP5"),
+                    image: "instruction5"),
                 DirectionModel(
-                    step: "6. Keluar Basement belok kiri ke arah kantin.",
-                    image: "STEP6"),
+                    instruction: "6. Keluar Basement belok kiri ke arah kantin.",
+                    image: "instruction6"),
                 DirectionModel(
-                    step: "7. Lurus terus sampai ujung.", image: "STEP7"),
+                    instruction: "7. Lurus terus sampai ujung.", image: "instruction7"),
                 DirectionModel(
-                    step:
+                    instruction:
                         "8. Sampai di ujung kamu akan menemukan tempat Green Eatery lalu belok kiri",
-                    image: "STEP8"),
+                    image: "instruction8"),
                 DirectionModel(
-                    step: "9. Masuk ke dalam kantin Green Eatery",
-                    image: "STEP9"),
+                    instruction: "9. Masuk ke dalam kantin Green Eatery",
+                    image: "instruction9"),
                 DirectionModel(
-                    step: "10. Lurus sampai ujung lalu belok kanan",
-                    image: "STEP10"),
+                    instruction: "10. Lurus sampai ujung lalu belok kanan",
+                    image: "instruction10"),
                 DirectionModel(
-                    step:
+                    instruction:
                         "11. Kantin Mama Djempol ada di paling ujung sebelah kanan",
-                    image: "STEP11"),
+                    image: "instruction11"),
                 DirectionModel(
-                    step: "12. Sampai di titik tujuan! Selamat menikmati",
+                    instruction: "12. Sampai di titik tujuan! Selamat menikmati",
                     image: "Mama Djempol"),
             ]),
         TenantModel(
@@ -121,45 +121,45 @@ struct TenantSeeder {
             ],
             directions: [
                 DirectionModel(
-                    step: "1. Keluar dari pintu depan Apple Academy.",
-                    image: "STEP1"),
+                    instruction: "1. Keluar dari pintu depan Apple Academy.",
+                    image: "instruction1"),
                 DirectionModel(
-                    step:
+                    instruction:
                         "2. Dari pintu keluar Apple Developer Academy belok kiri untuk menuju ke arah basement.",
-                    image: "STEP2"),
+                    image: "instruction2"),
                 DirectionModel(
-                    step:
+                    instruction:
                         "3. Lurus dan belok kanan untuk turun ke arah basement.",
-                    image: "STEP3"),
+                    image: "instruction3"),
                 DirectionModel(
-                    step:
+                    instruction:
                         "4. Lurus terus dan turun menggunakan tangga atau lift",
-                    image: "STEP4"),
+                    image: "instruction4"),
                 DirectionModel(
-                    step:
+                    instruction:
                         "5. Turun dari tangga belok kanan untuk keluar Basement",
-                    image: "STEP5"),
+                    image: "instruction5"),
                 DirectionModel(
-                    step: "6. Keluar Basement belok kiri ke arah kantin.",
-                    image: "STEP6"),
+                    instruction: "6. Keluar Basement belok kiri ke arah kantin.",
+                    image: "instruction6"),
                 DirectionModel(
-                    step: "7. Lurus terus sampai ujung.", image: "STEP7"),
+                    instruction: "7. Lurus terus sampai ujung.", image: "instruction7"),
                 DirectionModel(
-                    step:
+                    instruction:
                         "8. Sampai di ujung kamu akan menemukan tempat Green Eatery lalu belok kiri",
-                    image: "STEP8"),
+                    image: "instruction8"),
                 DirectionModel(
-                    step: "9. Masuk ke dalam kantin Green Eatery",
-                    image: "STEP9"),
+                    instruction: "9. Masuk ke dalam kantin Green Eatery",
+                    image: "instruction9"),
                 DirectionModel(
-                    step: "10. Lurus sampai ujung lalu belok kanan",
-                    image: "STEP10"),
+                    instruction: "10. Lurus sampai ujung lalu belok kanan",
+                    image: "instruction10"),
                 DirectionModel(
-                    step:
+                    instruction:
                         "11. Kantin Mama Djempol ada di paling ujung sebelah kanan",
-                    image: "STEP11"),
+                    image: "instruction11"),
                 DirectionModel(
-                    step: "12. Sampai di titik tujuan! Selamat menikmati",
+                    instruction: "12. Sampai di titik tujuan! Selamat menikmati",
                     image: "Mama Djempol"),
             ]),
         TenantModel(
@@ -196,45 +196,45 @@ struct TenantSeeder {
             ],
             directions: [
                 DirectionModel(
-                    step: "1. Keluar dari pintu depan Apple Academy.",
-                    image: "STEP1"),
+                    instruction: "1. Keluar dari pintu depan Apple Academy.",
+                    image: "instruction1"),
                 DirectionModel(
-                    step:
+                    instruction:
                         "2. Dari pintu keluar Apple Developer Academy belok kiri untuk menuju ke arah basement.",
-                    image: "STEP2"),
+                    image: "instruction2"),
                 DirectionModel(
-                    step:
+                    instruction:
                         "3. Lurus dan belok kanan untuk turun ke arah basement.",
-                    image: "STEP3"),
+                    image: "instruction3"),
                 DirectionModel(
-                    step:
+                    instruction:
                         "4. Lurus terus dan turun menggunakan tangga atau lift",
-                    image: "STEP4"),
+                    image: "instruction4"),
                 DirectionModel(
-                    step:
+                    instruction:
                         "5. Turun dari tangga belok kanan untuk keluar Basement",
-                    image: "STEP5"),
+                    image: "instruction5"),
                 DirectionModel(
-                    step: "6. Keluar Basement belok kiri ke arah kantin.",
-                    image: "STEP6"),
+                    instruction: "6. Keluar Basement belok kiri ke arah kantin.",
+                    image: "instruction6"),
                 DirectionModel(
-                    step: "7. Lurus terus sampai ujung.", image: "STEP7"),
+                    instruction: "7. Lurus terus sampai ujung.", image: "instruction7"),
                 DirectionModel(
-                    step:
+                    instruction:
                         "8. Sampai di ujung kamu akan menemukan tempat Green Eatery lalu belok kiri",
-                    image: "STEP8"),
+                    image: "instruction8"),
                 DirectionModel(
-                    step: "9. Masuk ke dalam kantin Green Eatery",
-                    image: "STEP9"),
+                    instruction: "9. Masuk ke dalam kantin Green Eatery",
+                    image: "instruction9"),
                 DirectionModel(
-                    step: "10. Lurus sampai ujung lalu belok kanan",
-                    image: "STEP10"),
+                    instruction: "10. Lurus sampai ujung lalu belok kanan",
+                    image: "instruction10"),
                 DirectionModel(
-                    step:
+                    instruction:
                         "11. Kantin Mama Djempol ada di paling ujung sebelah kanan",
-                    image: "STEP11"),
+                    image: "instruction11"),
                 DirectionModel(
-                    step: "12. Sampai di titik tujuan! Selamat menikmati",
+                    instruction: "12. Sampai di titik tujuan! Selamat menikmati",
                     image: "Mama Djempol"),
             ]
         ),
@@ -257,45 +257,45 @@ struct TenantSeeder {
             ],
             directions: [
                 DirectionModel(
-                    step: "1. Keluar dari pintu depan Apple Academy.",
-                    image: "STEP1"),
+                    instruction: "1. Keluar dari pintu depan Apple Academy.",
+                    image: "instruction1"),
                 DirectionModel(
-                    step:
+                    instruction:
                         "2. Dari pintu keluar Apple Developer Academy belok kiri untuk menuju ke arah basement.",
-                    image: "STEP2"),
+                    image: "instruction2"),
                 DirectionModel(
-                    step:
+                    instruction:
                         "3. Lurus dan belok kanan untuk turun ke arah basement.",
-                    image: "STEP3"),
+                    image: "instruction3"),
                 DirectionModel(
-                    step:
+                    instruction:
                         "4. Lurus terus dan turun menggunakan tangga atau lift",
-                    image: "STEP4"),
+                    image: "instruction4"),
                 DirectionModel(
-                    step:
+                    instruction:
                         "5. Turun dari tangga belok kanan untuk keluar Basement",
-                    image: "STEP5"),
+                    image: "instruction5"),
                 DirectionModel(
-                    step: "6. Keluar Basement belok kiri ke arah kantin.",
-                    image: "STEP6"),
+                    instruction: "6. Keluar Basement belok kiri ke arah kantin.",
+                    image: "instruction6"),
                 DirectionModel(
-                    step: "7. Lurus terus sampai ujung.", image: "STEP7"),
+                    instruction: "7. Lurus terus sampai ujung.", image: "instruction7"),
                 DirectionModel(
-                    step:
+                    instruction:
                         "8. Sampai di ujung kamu akan menemukan tempat Green Eatery lalu belok kiri",
-                    image: "STEP8"),
+                    image: "instruction8"),
                 DirectionModel(
-                    step: "9. Masuk ke dalam kantin Green Eatery",
-                    image: "STEP9"),
+                    instruction: "9. Masuk ke dalam kantin Green Eatery",
+                    image: "instruction9"),
                 DirectionModel(
-                    step: "10. Lurus sampai ujung lalu belok kanan",
-                    image: "STEP10"),
+                    instruction: "10. Lurus sampai ujung lalu belok kanan",
+                    image: "instruction10"),
                 DirectionModel(
-                    step:
+                    instruction:
                         "11. Kantin Mama Djempol ada di paling ujung sebelah kanan",
-                    image: "STEP11"),
+                    image: "instruction11"),
                 DirectionModel(
-                    step: "12. Sampai di titik tujuan! Selamat menikmati",
+                    instruction: "12. Sampai di titik tujuan! Selamat menikmati",
                     image: "Mama Djempol"),
             ]
         ),
