@@ -100,17 +100,6 @@ struct PageDetail: View {
                 }
                 .navigationTitle(tenant.name)
             }
-
-            
-
-            NavigationLink(
-                destination: DirectionPage(
-                    tenantName: tenant.name, steps: tenant.directions
-                ),
-                isActive: $navigateToNavigation
-            ) {
-                EmptyView()
-            }
         }
         .padding(10)
         
@@ -118,7 +107,7 @@ struct PageDetail: View {
         VStack {
             HStack {
                 Button {
-                    
+                    navigateToNavigation = true
                 } label: {
                     Text("Navigation")
                         .font(.headline)
@@ -127,9 +116,18 @@ struct PageDetail: View {
                         .foregroundStyle(.white)
                         .background(Color.ourBlue, in: .capsule)
                 }
+                .background(
+                    NavigationLink(
+                        destination: DestinationPickingView(),
+                        isActive: $navigateToNavigation
+                    ) {
+                        EmptyView()
+                    }
+                )
             }
             .frame(width: .infinity, height: 0)
             .padding()
+            
         }
         .padding(.top, 15)
 

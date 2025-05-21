@@ -49,7 +49,7 @@ struct NavigationCard: View {
                             endPoint: .bottom
                         )
                     )
-                    Text("Step 1")
+                    Text("EatsWay")
                         .font(.system(size: 24, weight: .bold))
                         .foregroundStyle(Color.white)
                         .padding(24)

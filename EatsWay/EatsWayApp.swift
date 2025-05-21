@@ -20,14 +20,20 @@ struct EatsWayApp: App {
     var body: some Scene {
         WindowGroup {
             NavigationStack {
-                DestinationPickingView()
+                if hasUserLogin {
+                    HomePage(
+                        filteredTenants: filteredTenants,
+                        user: user)
+                } else {
+                    OnboardingView(
+                        user: $user, hasUserLogin: $hasUserLogin,
+                        isShowingFilterPage: $isShowingFilterPage,
+                        selectedCuisines: $user.selectedLabels,
+                        priceSorting: $user.priceSorting, tenants: $tenants,
+                        filteredTenants: $filteredTenants)
+                }
             }
-//            if hasUserLogin {
-//                HomePage(filteredTenants: filteredTenants,
-//                    user: user)
-//            } else {
-//                OnboardingView(user: $user, hasUserLogin: $hasUserLogin, isShowingFilterPage: $isShowingFilterPage, selectedCuisines: $user.selectedLabels, priceSorting: $user.priceSorting, tenants: $tenants, filteredTenants: $filteredTenants)
-//            }
+
         }
     }
 }
